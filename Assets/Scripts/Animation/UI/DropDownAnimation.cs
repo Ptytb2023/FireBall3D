@@ -14,7 +14,7 @@ public class DropDownAnimation : MonoBehaviour
     private void Start()
     {
         _dropDownList = _actionRoot.GetComponentsInChildren<RectTransform>();
-        _isActive = true;
+        _isActive = false;
 
         ApplayDropDawn(_rangeTweenData, _dropDownList, _isActive);
     }
