@@ -11,9 +11,9 @@ namespace UI.Buttons
         private int _currentIndex;
 
 
-        private void Start()
+        private void Awake()
         {
-            Initialize();
+           Initialize();
         }
 
 

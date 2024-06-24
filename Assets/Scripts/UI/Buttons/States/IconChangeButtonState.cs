@@ -13,7 +13,8 @@ namespace UI.Buttons.States
         private Image _image;
         private AudioSource _audioSource;
 
-        private void Start()
+
+        private void Awake()
         {
             _image = GetComponent<Image>();
             _audioSource = GetComponent<AudioSource>();
@@ -23,16 +24,14 @@ namespace UI.Buttons.States
 
         public override void Enter()
         {
-            _audioSource.mute = false;
-
             _image.sprite = _iconChange;
             _audioSource.PlayOneShot(_clickSound);
 
+            _audioSource.mute = false;
             OnStateEnter();
-
         }
 
-        protected abstract void OnStateEnter();
+        protected virtual void OnStateEnter() { }
     }
 
 }
