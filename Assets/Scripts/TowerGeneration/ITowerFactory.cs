@@ -5,6 +5,6 @@ namespace Generation
 {
     public interface IAsyncTowerFactory
     {
-        public Task<Tower> CreatAsync(Transform postion);
+        public Task<Tower> CreatAsync(Transform tower);
     }
 }
