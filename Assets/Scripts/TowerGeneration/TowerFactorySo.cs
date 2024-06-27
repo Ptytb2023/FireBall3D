@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEditor;
 using UnityEngine;
 
 namespace Generation
@@ -10,55 +8,61 @@ namespace Generation
         fileName = nameof(TowerFactorySo),
         menuName = nameof(ScriptableObject) + "/" + nameof(Tower) + "/" + nameof(TowerFactorySo),
         order = 51)]
-    public class TowerFactorySo : ScriptableObject, IAsyncTowerFactory
+    public class TowerFactorySo : ScriptableObject, ITowerFactory
     {
         [SerializeField] private SegmentPlatform _segmentPrefab;
         [SerializeField][Min(0)] private int _countSpawn;
-        [SerializeField][Min(0)] private float _secondBetweenSpawnPlatform;
+
         [SerializeField] private Material[] _materials = Array.Empty<Material>();
+        [SerializeField] private float _stepOfSquntialRotationY = 4f;
+
 
         private float StepOfSquntialRotationY => 360 / _countSpawn;
 
 
-       
-        public async Task<Tower> CreatAsync(Transform tower)
+
+        public Tower Creat(Transform tower)
         {
             Vector3 postionSpawn = tower.position;
-            Quaternion roationPlatform = Quaternion.identity;
+            Quaternion rotation = GetNexRotation(Quaternion.Euler(Vector3.zero));
 
             Queue<SegmentPlatform> platforms = new Queue<SegmentPlatform>(_countSpawn);
 
-
             for (int i = 0; i < _countSpawn; i++)
             {
-                var platform = Instantiate(_segmentPrefab, postionSpawn, roationPlatform, tower);
+                SegmentPlatform platform = CreatPlatform(tower, postionSpawn, rotation, i);
+                platform.gameObject.SetActive(false);
 
-                platforms.Enqueue(platform);
-
+                rotation = GetNexRotation(platform.transform.rotation);
                 postionSpawn = NextPostionAfter(platform, _segmentPrefab);
 
-                roationPlatform = GetNextRoation(platform.transform.rotation);
-
-                await ApplayDeleay(_secondBetweenSpawnPlatform);
+                platforms.Enqueue(platform);
             }
 
             return new Tower(platforms);
-
         }
 
-        private async Task ApplayDeleay(float second)
+        private SegmentPlatform CreatPlatform(Transform tower, Vector3 postionSpawn, Quaternion rotation, int nuberOfInstancei)
         {
-            TimeSpan timeSpawn = TimeSpan.FromSeconds(second);
-            await Task.Delay(timeSpawn);
+            var platform = Instantiate(_segmentPrefab, postionSpawn, rotation, tower);
+            platform.SetMaterial(GetMaterial(nuberOfInstancei));
+
+            return platform;
         }
 
-        private Quaternion GetNextRoation(Quaternion lastRoation)
+
+        private Material GetMaterial(int nuberOfInstance)
         {
-            Vector3 nexRotation = StepOfSquntialRotationY * Vector3.up + lastRoation.eulerAngles;
+            int index = nuberOfInstance % _materials.Length;
 
-            return Quaternion.Euler(nexRotation);
+            return _materials[index];
         }
 
+        private Quaternion GetNexRotation(Quaternion lastRotation)
+        {
+            Vector3 nextRotation = _stepOfSquntialRotationY * Vector3.up + lastRotation.eulerAngles;
+            return Quaternion.Euler(nextRotation);
+        }
 
         private Vector3 NextPostionAfter(SegmentPlatform lastPlatform, SegmentPlatform ToPlatform)
         {
@@ -76,7 +80,7 @@ namespace Generation
 
         private float GetBoundsExtentsYByMesh(SegmentPlatform segmentPlatform)
         {
-            Mesh mesh = segmentPlatform.GetComponent<Mesh>();
+            MeshRenderer mesh = segmentPlatform.GetComponent<MeshRenderer>();
             return mesh.bounds.extents.y;
         }
     }

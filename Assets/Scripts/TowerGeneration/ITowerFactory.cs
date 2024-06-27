@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Generation
 {
-    public interface IAsyncTowerFactory
+    public interface ITowerFactory
     {
-        public Task<Tower> CreatAsync(Transform tower);
+        public Tower Creat(Transform tower);
     }
 }

@@ -6,6 +6,8 @@ namespace Generation
     {
         private Queue<SegmentPlatform> _segments;
 
+        public IEnumerable<SegmentPlatform> Segments => _segments;
+
         public Tower(IEnumerable<SegmentPlatform> segemts) : this(new Queue<SegmentPlatform>(segemts)) { }
 
         public Tower(Queue<SegmentPlatform> segments) =>
