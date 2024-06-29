@@ -66,22 +66,33 @@ namespace Generation
 
         private Vector3 NextPostionAfter(SegmentPlatform lastPlatform, SegmentPlatform ToPlatform)
         {
-            float lastSizeYPlatform = GetBoundsExtentsYByMesh(lastPlatform);
-            float sizeYToPlatform = GetBoundsExtentsYByMesh(ToPlatform);
+            ////float lastSizeYPlatform = GetBoundsExtentsYByMesh(lastPlatform);
+            ////float sizeYToPlatform = GetBoundsExtentsYByMesh(ToPlatform);      
+            //float lastSizeYPlatform = lastPlatform.transform.localScale.y;
+            //float sizeYToPlatform = ToPlatform.transform.localScale.y;
 
 
-            Vector3 lastPlatformPosition = lastPlatform.transform.position;
-            Vector3 lastPlatformBounds = lastSizeYPlatform * Vector3.up;
-            Vector3 ToPlatformBounds = sizeYToPlatform * Vector3.up;
+            //Vector3 lastPlatformPosition = lastPlatform.transform.position;
+            //Vector3 lastPlatformBounds = lastSizeYPlatform  * Vector3.up;
+            //Vector3 ToPlatformBounds = sizeYToPlatform  * Vector3.up;
 
-            return lastPlatformPosition + lastPlatformBounds + ToPlatformBounds;
+            //return lastPlatformPosition + lastPlatformBounds + ToPlatformBounds;
+
+
+            Vector3 currentPostion = lastPlatform.transform.position;
+            float segmentHight = ToPlatform.transform.localScale.y;
+
+            return currentPostion + segmentHight * Vector3.up;
+
         }
 
 
         private float GetBoundsExtentsYByMesh(SegmentPlatform segmentPlatform)
         {
             MeshRenderer mesh = segmentPlatform.GetComponent<MeshRenderer>();
-            return mesh.bounds.extents.y;
+            Vector3 scale = segmentPlatform.transform.localScale;
+
+            return mesh.bounds.size.y * scale.y;
         }
     }
 

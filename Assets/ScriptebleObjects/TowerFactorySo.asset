@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d533e8b4f00ac045b74476eddf09517, type: 3}
   m_Name: TowerFactorySo
   m_EditorClassIdentifier: 
-  _segmentPrefab: {fileID: 8022894060457659217, guid: 4229086d245d88447a36b53a2e77cd86,
+  _segmentPrefab: {fileID: 8396052337349739348, guid: 101b694a6aede6344bbe1ab9caf05723,
     type: 3}
   _countSpawn: 10
   _materials:
   - {fileID: 2100000, guid: 0e29eec5587511b4aa8b365561750ad4, type: 2}
   - {fileID: 2100000, guid: 2ec63efd811fba744a3c2155c20d9bea, type: 2}
-  _stepOfSquntialRotationY: 6
+  _stepOfSquntialRotationY: 0

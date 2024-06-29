@@ -20,6 +20,7 @@ namespace Generation
         [ContextMenu(nameof(Generation))]
         private void Generation()
         {
+
             _tower = TowerFactory.Creat(_pointTower);
             _animation.ApplayRoation(_pointTower);
 
