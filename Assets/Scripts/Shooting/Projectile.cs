@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Porjectiles
+namespace Shooting
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Porjectile : MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         private Rigidbody _rigidbody;
 
@@ -15,7 +15,7 @@ namespace Porjectiles
 
         public void Shoot(Vector3 postion, Vector3 direction, float speed) => 
             StartCoroutine(MoveAlong(postion, direction, speed));
-
+         
         private IEnumerator MoveAlong(Vector3 postion, Vector3 direction, float speed)
         {
             while (enabled)
