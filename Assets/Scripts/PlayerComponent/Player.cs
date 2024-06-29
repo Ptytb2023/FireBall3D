@@ -10,32 +10,30 @@ namespace PlayerComponent
         [SerializeField] private InputWeapon _weaponInput;
 
         [SerializeField] private Character _caharcer;
-        [SerializeField] private Projectile _bulletPrfeb;
-        [SerializeField] private float _speedBullet;
-        [SerializeField] private float _countBuleltInOneSecond;
+        [SerializeField] private ShootingPreferenceSo _hootingPreferenceSo;
 
 
         private FireRate _fireRate;
-
-        private Coroutine _shootinCorutine;
+        private Weapon _weapon;
 
         private void Awake()
         {
-            Weapon weapon = new(_caharcer.ShootPoint, _bulletPrfeb, _speedBullet);
-            _fireRate = new FireRate(weapon, _countBuleltInOneSecond);
+            _weapon = _hootingPreferenceSo.GetWeapon(_caharcer.ShootPoint);
+            _fireRate = _hootingPreferenceSo.GetFireRate();
         }
 
         private void OnEnable()
         {
-            _weaponInput.Hold += Shoot;
+            _weaponInput.Hold += TryAction;
         }
 
         private void OnDisable()
         {
-            _weaponInput.Begin -= Shoot;
+            _weaponInput.Begin -= TryAction;
         }
 
-        private void Shoot() => _fireRate.TryShoot();
+        private void TryAction() =>
+            _fireRate.TryShoot(_weapon);
 
     }
 }
