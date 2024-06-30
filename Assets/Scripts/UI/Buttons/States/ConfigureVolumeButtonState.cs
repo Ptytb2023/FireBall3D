@@ -9,8 +9,8 @@ namespace UI.Buttons.States
         [SerializeField] private string _volumeExposidParametr;
         [SerializeField] private AudioMixer _mixer;
 
-
         protected abstract float VolumeLevel { get; }
+
         protected override void OnStateEnter()
         {
             _mixer.SetFloat(_volumeExposidParametr, VolumeLevel);

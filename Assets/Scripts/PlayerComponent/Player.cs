@@ -2,6 +2,7 @@
 using Shooting;
 using Inputs;
 using Characters;
+using Pathes;
 
 namespace PlayerComponent
 {
@@ -12,7 +13,11 @@ namespace PlayerComponent
         [SerializeField] private Character _caharcer;
         [SerializeField] private ShootingPreferenceSo _hootingPreferenceSo;
 
+        [SerializeField] private MovebelPreferenceSo _movebelPreferenceSo;
+        [SerializeField] private Path _path;
 
+
+        private MovebelByPath _movebel;
         private FireRate _fireRate;
         private Weapon _weapon;
 
@@ -20,6 +25,8 @@ namespace PlayerComponent
         {
             _weapon = _hootingPreferenceSo.GetWeapon(_caharcer.ShootPoint);
             _fireRate = _hootingPreferenceSo.GetFireRate();
+
+            _movebel = new MovebelByPath(_path, _movebelPreferenceSo, this);
         }
 
         private void OnEnable()
@@ -35,5 +42,8 @@ namespace PlayerComponent
         private void TryAction() =>
             _fireRate.TryShoot(_weapon);
 
+        [ContextMenu(nameof(Move))]
+        public void Move() =>
+            _movebel.MoveToNext();
     }
 }

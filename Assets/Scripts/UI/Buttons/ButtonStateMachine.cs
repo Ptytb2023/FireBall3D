@@ -10,12 +10,10 @@ namespace UI.Buttons
 
         private int _currentIndex;
 
-
         private void Awake()
         {
            Initialize();
         }
-
 
         public void ChangeOnNextState()
         {

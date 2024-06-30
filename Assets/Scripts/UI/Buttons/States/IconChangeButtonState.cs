@@ -13,7 +13,6 @@ namespace UI.Buttons.States
         private Image _image;
         private AudioSource _audioSource;
 
-
         private void Awake()
         {
             _image = GetComponent<Image>();

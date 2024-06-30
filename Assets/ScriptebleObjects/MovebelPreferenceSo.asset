@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0648d734cf558c4d89a9f839b79c986, type: 3}
-  m_Name: ShootingPreferenceSo
+  m_Script: {fileID: 11500000, guid: b7488064c25c77740b872ffaf75489fa, type: 3}
+  m_Name: MovebelPreferenceSo
   m_EditorClassIdentifier: 
-  _ProjectilePrfeb: {fileID: 4627188908282584882, guid: 4aa356a8c0c2c5d489a070c1ee91fc5f,
-    type: 3}
-  _speedBullet: 3
-  _fireRate: 3
+  _durationLookAtPoint: 0.5
+  _durationMovePerPoint: 3
