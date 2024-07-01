@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Coroutines;
-using Obstacel.Sequence;
+using Obstacle.Sequence;
 
 namespace Obstaicel.Sequence
 {

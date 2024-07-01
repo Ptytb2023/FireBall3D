@@ -1,5 +1,5 @@
 
-namespace Obstacel
+namespace Obstacle
 {
     public interface IMovement
     {

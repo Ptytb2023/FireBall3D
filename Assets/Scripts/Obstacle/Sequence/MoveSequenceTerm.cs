@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-using Obstacel.Sequence;
+using Obstacle.Sequence;
 using Structures;
-using Obstacel;
+using Obstacle;
 
 namespace Obstaicel.Sequence
 {

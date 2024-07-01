@@ -1,6 +1,6 @@
 ﻿using Coroutines;
-using Obstacel;
-using Obstacel.Sequence;
+using Obstacle;
+using Obstacle.Sequence;
 using Obstaicel.Sequence;
 using Sequence;
 using Structures;
@@ -23,7 +23,6 @@ namespace Obstaicel
 
         private void Start()
         {
-
             IMovement movment = new RotationMovement(transform, Vector3.up, _speed.Min);
 
             var terms = new ISequnceTerm[]
@@ -38,5 +37,7 @@ namespace Obstaicel
 
             sequence.StartProccesing();
         }
+
+      
     }
 }
