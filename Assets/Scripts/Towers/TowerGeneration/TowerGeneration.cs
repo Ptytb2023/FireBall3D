@@ -37,14 +37,14 @@ namespace Towers.Generation
         private IEnumerator SwithebleSegmentPlatformByDelay(float second)
         {
             WaitForSeconds delay = new WaitForSeconds(second);
-            int count = 0;
 
-            foreach (var segment in _tower.Segments)
+            var segments = _tower.Segments;
+
+            for (int i = 0; i < segments.Count; i++)
             {
-                segment.gameObject.SetActive(true);
+                segments[i].gameObject.SetActive(true);
 
-                count++;
-                SwichSegment?.Invoke(count);
+                SwichSegment?.Invoke(i + 1);
 
                 yield return delay;
             }

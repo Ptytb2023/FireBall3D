@@ -1,6 +1,7 @@
 ﻿using ReactiveProperties;
 using RelativeProperties;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Towers
 {
@@ -9,7 +10,7 @@ namespace Towers
         private readonly Queue<SegmentPlatform> _segments;
         private readonly ReactivePoperty<int> _countSegments;
 
-        public IEnumerable<SegmentPlatform> Segments => _segments;
+        public IReadOnlyList<SegmentPlatform> Segments => _segments.ToList();
         public IReadOnlyReactiveProperty<int> CountSegments => _countSegments;
 
 
