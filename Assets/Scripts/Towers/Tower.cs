@@ -8,6 +8,8 @@ namespace Towers
 
         public IEnumerable<SegmentPlatform> Segments => _segments;
 
+        public int CountElements => _segments.Count;
+
         public Tower(IEnumerable<SegmentPlatform> segemts) : this(new Queue<SegmentPlatform>(segemts)) { }
 
         public Tower(Queue<SegmentPlatform> segments) =>

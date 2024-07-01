@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 using UnityObject = UnityEngine.Object;
@@ -11,6 +12,8 @@ namespace Towers.Disassembling
         private readonly Tower _tower;
         private float _stepOfSquntialRotationY;
 
+        public event Action Disassembling;
+
         public TowerDisassembling(Transform rootTower, Tower tower, float stepOfSquntialRotationY)
         {
             _rootTower = rootTower;
@@ -18,8 +21,14 @@ namespace Towers.Disassembling
             _stepOfSquntialRotationY = stepOfSquntialRotationY;
         }
 
-        public void RemoveBotton()
+        public void TryRemoveBotton()
         {
+            if (_tower.CountElements <= 0)
+            {
+                Disassembling?.Invoke();
+                return;
+            }
+
             SegmentPlatform towerSegment = _tower.GetTowerSegment();
 
             float scaleY = towerSegment.transform.localScale.y;

@@ -22,14 +22,27 @@ namespace Towers
             _tower = _generation.Generation();
             _disassembling = new TowerDisassembling(_towerRoot, _tower, _stepRoationY);
 
-            _progetileHitTrigger.ProjectileReturn += _disassembling.RemoveBotton;
+            _progetileHitTrigger.ProjectileReturn += _disassembling.TryRemoveBotton;
+            _disassembling.Disassembling += OnDisassemblingTower;
+
+        }
+
+        private void OnDisassemblingTower()
+        {
+            Destroy(gameObject);
         }
 
         private void OnDisable()
         {
             if (_disassembling is not null)
-                _progetileHitTrigger.ProjectileReturn -= _disassembling.RemoveBotton;
+            {
+                _progetileHitTrigger.ProjectileReturn -= _disassembling.TryRemoveBotton;
+                _disassembling.Disassembling-=OnDisassemblingTower;
+            }
 
+            Destroy(_progetileHitTrigger.gameObject);
+            Destroy(_generation.gameObject);
+            Destroy(_towerRoot.gameObject);
         }
     }
 }
