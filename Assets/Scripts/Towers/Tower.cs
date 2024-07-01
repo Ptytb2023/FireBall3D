@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Generation
+namespace Towers
 {
     public class Tower
     {
@@ -12,5 +12,8 @@ namespace Generation
 
         public Tower(Queue<SegmentPlatform> segments) =>
             _segments = segments;
+
+        public SegmentPlatform GetTowerSegment() =>
+            _segments.Dequeue();
     }
 }

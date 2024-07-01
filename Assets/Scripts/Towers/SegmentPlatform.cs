@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Generation
+namespace Towers
 {
     [RequireComponent(typeof(MeshRenderer))]
     public class SegmentPlatform : MonoBehaviour

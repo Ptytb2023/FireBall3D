@@ -1,7 +1,6 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Generation
+namespace Towers.Generation
 {
     public interface ITowerFactory
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Generation
+namespace Towers.Generation
 {
     [CreateAssetMenu(
         fileName = nameof(TowerFactorySo),

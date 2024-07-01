@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Shooting.Pool
 {
@@ -7,12 +8,17 @@ namespace Shooting.Pool
     {
         [SerializeField] private ProjectilePool _pool;
 
+        public event Action ProjectileReturn;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Projectile projectile))
+            {
                 _pool.Return(projectile);
+                ProjectileReturn?.Invoke();
+            }
         }
+
         private void OnValidate() =>
             GetComponent<Collider>().isTrigger = true;
     }

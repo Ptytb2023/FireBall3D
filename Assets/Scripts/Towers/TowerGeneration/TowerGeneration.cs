@@ -1,11 +1,12 @@
-using Animation;
 using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+
+using Animation;
 using UnityObject = UnityEngine.Object;
 
-namespace Generation
+namespace Towers.Generation
 {
     public class TowerGeneration : MonoBehaviour
     {
@@ -18,7 +19,7 @@ namespace Generation
         private ITowerFactory TowerFactory => _towerFactory as ITowerFactory;
 
         [ContextMenu(nameof(Generation))]
-        private void Generation()
+        public Tower Generation()
         {
             _tower = TowerFactory.Creat(_pointTower);
             _animation.ApplayRoation(_pointTower);
@@ -26,6 +27,8 @@ namespace Generation
             float secondDelay = _animation.RoationData.Duration / (float)_tower.Segments.Count();
 
             StartCoroutine(SwithebleSegmentPlatformByDelay(secondDelay));
+
+            return _tower;
         }
 
 
