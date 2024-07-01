@@ -20,11 +20,5 @@ namespace Shooting
         public float speedBullet => _speedBullet;
         public float FireRate=>_fireRate;
 
-        public Weapon GetWeapon(Transform shootPoint) =>
-            new Weapon(shootPoint, _ProjectilePrfeb, _speedBullet);
-
-        public FireRate GetFireRate()
-            => new FireRate(_fireRate);
-
     }
 }
