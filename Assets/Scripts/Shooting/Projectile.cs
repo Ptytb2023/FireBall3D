@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Physics;
+using System.Collections;
 using UnityEngine;
 
 namespace Shooting
@@ -6,7 +7,10 @@ namespace Shooting
     [RequireComponent(typeof(Rigidbody))]
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private DirectionlBouncedPreferences _directionlBouncedPreferences;
+
         private Rigidbody _rigidbody;
+        private DirectionalBouced _bouced;
 
         private void Awake()
         {
@@ -27,5 +31,6 @@ namespace Shooting
                 yield return null;
             }
         }
+
     }
 }

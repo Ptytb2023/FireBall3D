@@ -7,7 +7,7 @@ namespace Assets.Scripts.Structures
         private float _enterTime;
         private float _duration;
 
-        public bool IsTimeUp => Time.time >= _enterTime + _duration;
+        public bool IsTimeUp => Time.time <= _enterTime + _duration;
         public float ElapsedTimePresent => (Time.time - _enterTime) / _duration;
 
         public void Start(float duration)

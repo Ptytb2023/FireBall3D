@@ -24,8 +24,8 @@ namespace Physics
         }
 
 
-        public void BouncedTo(Vector3 target, Vector3 startPostion) =>
-            _executor.Start(InterpolatePostion(target, startPostion));
+        public void BouncedTo(Vector3 target,Vector3 startPostion)=>
+            _executor.Start(InterpolatePostion(target,startPostion));
 
         private IEnumerator InterpolatePostion(Vector3 target, Vector3 startPostion)
         {
