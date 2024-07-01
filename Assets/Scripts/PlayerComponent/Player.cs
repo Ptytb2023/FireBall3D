@@ -3,7 +3,7 @@ using Shooting;
 using Inputs;
 using Characters;
 using Pathes;
-using Assets.Scripts.Pool;
+using Shooting.Pool;
 
 namespace PlayerComponent
 {

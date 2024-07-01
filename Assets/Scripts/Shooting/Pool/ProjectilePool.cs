@@ -3,7 +3,7 @@ using Pool;
 using Shooting;
 using UnityEngine;
 
-namespace Assets.Scripts.Pool
+namespace Shooting.Pool
 {
     public class ProjectilePool : MonoBehaviorPool<Projectile>
     {
