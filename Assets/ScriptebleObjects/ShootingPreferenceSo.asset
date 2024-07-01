@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ProjectilePrfeb: {fileID: 4627188908282584882, guid: 4aa356a8c0c2c5d489a070c1ee91fc5f,
     type: 3}
-  _speedBullet: 3
-  _fireRate: 3
+  _speedBullet: 10
+  _fireRate: 5

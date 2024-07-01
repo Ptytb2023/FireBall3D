@@ -13,11 +13,38 @@ MonoBehaviour:
   m_Name: DirectionBouncedPreferenceSo
   m_EditorClassIdentifier: 
   _directionlBouncedPreferences:
-    <Duration>k__BackingField: 0
-    <Height>k__BackingField: 0
+    <Duration>k__BackingField: 1
+    <Height>k__BackingField: 2
     <Trajecroty>k__BackingField:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2.0110657
+        outSlope: 2.0110657
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5013926
+        value: 1.0083334
+        inSlope: -0.01118803
+        outSlope: -0.01118803
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.0055556297
+        inSlope: -2.0334418
+        outSlope: -2.0334418
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

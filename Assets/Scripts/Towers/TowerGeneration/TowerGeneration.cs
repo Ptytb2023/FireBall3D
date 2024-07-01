@@ -8,13 +8,15 @@ using UnityObject = UnityEngine.Object;
 
 namespace Towers.Generation
 {
-    public class TowerGeneration : MonoBehaviour
+    public class TowerGeneration : MonoBehaviour, ITowerSwichSegmentCallback
     {
         [SerializeField] private Transform _pointTower;
         [SerializeField] private AnimationRotation _animation;
         [SerializeField] private UnityObject _towerFactory;
 
         private Tower _tower;
+
+        public event Action<int> SwichSegment;
 
         private ITowerFactory TowerFactory => _towerFactory as ITowerFactory;
 
@@ -35,12 +37,18 @@ namespace Towers.Generation
         private IEnumerator SwithebleSegmentPlatformByDelay(float second)
         {
             WaitForSeconds delay = new WaitForSeconds(second);
+            int count = 0;
 
             foreach (var segment in _tower.Segments)
             {
                 segment.gameObject.SetActive(true);
+
+                count++;
+                SwichSegment?.Invoke(count);
+
                 yield return delay;
             }
+
         }
 
         private void OnValidate()

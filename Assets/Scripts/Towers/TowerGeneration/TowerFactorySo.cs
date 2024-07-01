@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Towers.Generation;
 using UnityEngine;
 
 namespace Towers.Generation
@@ -37,6 +38,7 @@ namespace Towers.Generation
                 postionSpawn = NextPostionAfter(platform, _segmentPrefab);
 
                 platforms.Enqueue(platform);
+
             }
 
             return new Tower(platforms);

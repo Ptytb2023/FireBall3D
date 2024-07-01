@@ -1,21 +1,34 @@
-﻿using System.Collections.Generic;
+﻿using ReactiveProperties;
+using RelativeProperties;
+using System.Collections.Generic;
 
 namespace Towers
 {
     public class Tower
     {
-        private Queue<SegmentPlatform> _segments;
+        private readonly Queue<SegmentPlatform> _segments;
+        private readonly ReactivePoperty<int> _countSegments;
 
         public IEnumerable<SegmentPlatform> Segments => _segments;
+        public IReadOnlyReactiveProperty<int> CountSegments => _countSegments;
 
-        public int CountElements => _segments.Count;
 
-        public Tower(IEnumerable<SegmentPlatform> segemts) : this(new Queue<SegmentPlatform>(segemts)) { }
+        public Tower(IEnumerable<SegmentPlatform> segemts) 
+            : this(new Queue<SegmentPlatform>(segemts)) { }
 
-        public Tower(Queue<SegmentPlatform> segments) =>
+        public Tower(Queue<SegmentPlatform> segments)
+        {
             _segments = segments;
+            _countSegments = new ReactivePoperty<int>(_segments.Count);
+        }
 
-        public SegmentPlatform GetTowerSegment() =>
-            _segments.Dequeue();
+        public SegmentPlatform GetTowerSegment()
+        {
+            var segment = _segments.Dequeue();
+
+            _countSegments.Change(_segments.Count);
+
+            return segment;
+        }
     }
 }

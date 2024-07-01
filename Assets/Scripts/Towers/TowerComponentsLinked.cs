@@ -1,6 +1,7 @@
 ﻿using Shooting.Pool;
 using Towers.Disassembling;
 using Towers.Generation;
+using UI.Towers;
 using UnityEngine;
 
 namespace Towers
@@ -13,8 +14,17 @@ namespace Towers
         [SerializeField] private TowerGeneration _generation;
         [SerializeField] private RestoreProjectilePoolTriget _progetileHitTrigger;
 
+        [Space]
+        [SerializeField] private TowerSegmentsCountLeftText _towerSegmentText;
+
+
         private TowerDisassembling _disassembling;
         private Tower _tower;
+
+        private void Awake()
+        {
+            Prepare();
+        }
 
         [ContextMenu(nameof(Prepare))]
         public void Prepare()
@@ -25,7 +35,11 @@ namespace Towers
             _progetileHitTrigger.ProjectileReturn += _disassembling.TryRemoveBotton;
             _disassembling.Disassembling += OnDisassemblingTower;
 
+            _generation.SwichSegment += _towerSegmentText.UpdateTextValue;
+            _tower.CountSegments.Subscribe(_towerSegmentText.UpdateTextValue);
         }
+
+
 
         private void OnDisassemblingTower()
         {
@@ -34,11 +48,11 @@ namespace Towers
 
         private void OnDisable()
         {
-            if (_disassembling is not null)
-            {
-                _progetileHitTrigger.ProjectileReturn -= _disassembling.TryRemoveBotton;
-                _disassembling.Disassembling-=OnDisassemblingTower;
-            }
+            _progetileHitTrigger.ProjectileReturn -= _disassembling.TryRemoveBotton;
+            _disassembling.Disassembling -= OnDisassemblingTower;
+
+            _tower.CountSegments.UnSubscribe(_towerSegmentText.UpdateTextValue);
+            _generation.SwichSegment -= _towerSegmentText.UpdateTextValue;
 
             Destroy(_progetileHitTrigger.gameObject);
             Destroy(_generation.gameObject);
