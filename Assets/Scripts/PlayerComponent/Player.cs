@@ -13,13 +13,13 @@ namespace PlayerComponent
         [SerializeField] private InputWeapon _weaponInput;
 
         [Header("Visual")]
-        [SerializeField] private Character _caharcer;
+        [SerializeField] private CharacterContainerSo _caharcerContainer;
 
         [Header("Setting")]
         [SerializeField] private MovebelPreferenceSo _movebelPreferenceSo;
         [SerializeField] private ShootingPreferenceSo _shootingPreference;
         [SerializeField] private Path _path;
-        
+
         [Space]
         [SerializeField] private ProjectilePool _pool;
 
@@ -30,7 +30,9 @@ namespace PlayerComponent
 
         private void Awake()
         {
-            _weapon = new Weapon(_caharcer.ShootPoint, _pool, _shootingPreference.speedBullet);
+            Character character = _caharcerContainer.Creat(transform);
+
+            _weapon = new Weapon(character.ShootPoint, _pool, _shootingPreference.speedBullet);
             _fireRate = new FireRate(_shootingPreference.FireRate);
 
             _movebel = new MovebelByPath(_path, _movebelPreferenceSo, this);

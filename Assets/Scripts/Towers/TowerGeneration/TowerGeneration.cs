@@ -1,64 +1,92 @@
 using System;
-using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 using Animation;
 using UnityObject = UnityEngine.Object;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Towers.Strucure;
+using System.Threading;
+
 
 namespace Towers.Generation
 {
-    public class TowerGeneration : MonoBehaviour, ITowerSwichSegmentCallback
+    public class TowerGeneration : ITowerGeneration, ITowerCallbackContects, IDisposable
     {
-        [SerializeField] private Transform _pointTower;
-        [SerializeField] private AnimationRotation _animation;
-        [SerializeField] private UnityObject _towerFactory;
+        private readonly TowerStructuresSo _strucures;
 
-        private Tower _tower;
+        private readonly CancellationTokenSource _cancellationTokenSource;
+        private readonly CancellationToken _cancellationToken = new CancellationToken();
 
-        public event Action<int> SwichSegment;
+        public event Action<int> CreatSegment;
 
-        private ITowerFactory TowerFactory => _towerFactory as ITowerFactory;
-
-        [ContextMenu(nameof(Generation))]
-        public Tower Generation()
+        public TowerGeneration(TowerStructuresSo towerStrucuresSo)
         {
-            _tower = TowerFactory.Creat(_pointTower);
-            _animation.ApplayRoation(_pointTower);
+            _strucures = towerStrucuresSo;
 
-            float secondDelay = _animation.RoationData.Duration / (float)_tower.Segments.Count();
-
-            StartCoroutine(SwithebleSegmentPlatformByDelay(secondDelay));
-
-            return _tower;
+            _cancellationTokenSource = new CancellationTokenSource();
+            _cancellationToken = _cancellationTokenSource.Token;
         }
 
+        public async Task<Tower> CreatAsync(Transform parent) =>
+            await CreatAsync(parent, _cancellationToken);
 
-        private IEnumerator SwithebleSegmentPlatformByDelay(float second)
+        public void Dispose()
         {
-            WaitForSeconds delay = new WaitForSeconds(second);
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
+        }
 
-            var segments = _tower.Segments;
+        private async Task<Tower> CreatAsync(Transform tower, CancellationToken cancellationToken)
+        {
+            Vector3 postionSpawn = tower.position;
+            int countSegment = _strucures.SegmentCount;
 
-            for (int i = 0; i < segments.Count; i++)
+            float delay = _strucures.SpawnTimeSegmentMillisecond;
+
+            Queue<SegmentPlatform> segments = new Queue<SegmentPlatform>(countSegment);
+
+            for (int i = 0; i < countSegment; i++)
             {
-                segments[i].gameObject.SetActive(true);
+                if (cancellationToken.IsCancellationRequested)
+                    break;
 
-                SwichSegment?.Invoke(i + 1);
+                SegmentPlatform platform = CreatPlatform(tower, postionSpawn, i);
+                platform.gameObject.SetActive(false);
 
-                yield return delay;
+                postionSpawn = NextPostionAfter(postionSpawn, platform);
+
+                segments.Enqueue(platform);
+
+                await ApllayDelay(delay, cancellationToken);
             }
 
+            return new Tower(segments);
         }
 
-        private void OnValidate()
+        private async Task ApllayDelay(float second, CancellationToken cancellationToken)
         {
-            if (_towerFactory is not ITowerFactory)
-            {
-                _towerFactory = null;
-                throw new InvalidOperationException($"Tower Factory should be derived from {nameof(ITowerFactory)}");
-            }
+            TimeSpan delay = TimeSpan.FromSeconds(second);
+
+            await Task.Delay(delay, cancellationToken);
         }
 
+        private SegmentPlatform CreatPlatform(Transform tower, Vector3 postionSpawn, int nuberOfInstancei)
+        {
+            SegmentPlatform prefab = _strucures.SegmentPrefab;
+
+            var platform = UnityObject.Instantiate(prefab, postionSpawn, Quaternion.identity, tower);
+            platform.SetMaterial(_strucures.GetMaterial(nuberOfInstancei));
+
+            return platform;
+        }
+
+        private Vector3 NextPostionAfter(Vector3 currentPostion, SegmentPlatform ToPlatform)
+        {
+            float segmentHight = ToPlatform.transform.localScale.y;
+
+            return currentPostion + segmentHight * Vector3.up;
+
+        }
     }
 }

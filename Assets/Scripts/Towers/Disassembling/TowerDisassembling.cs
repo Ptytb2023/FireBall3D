@@ -6,7 +6,7 @@ using UnityObject = UnityEngine.Object;
 
 namespace Towers.Disassembling
 {
-    public class TowerDisassembling /*: IDisposable*/
+    public class TowerDisassembling 
     {
         private Transform _rootTower;
         private readonly Tower _tower;
@@ -19,17 +19,12 @@ namespace Towers.Disassembling
             _rootTower = rootTower;
             _tower = tower;
             _stepOfSquntialRotationY = stepOfSquntialRotationY;
-
-            //_tower.CountSegments.Subscribe(OnOverSegments);
         }
 
         public void TryRemoveBotton()
         {
-            if (_tower.CountSegments.Value <= 0)
-            {
-                Disassembling?.Invoke();
+            if (_tower.CountSegments.Value == 0)
                 return;
-            }
 
             SegmentPlatform towerSegment = _tower.GetTowerSegment();
 
@@ -38,12 +33,13 @@ namespace Towers.Disassembling
             _rootTower.rotation = Quaternion.Euler(Vector3.up * _stepOfSquntialRotationY);
 
             UnityObject.Destroy(towerSegment.gameObject);
+
+            if (_tower.CountSegments.Value == 0)
+                Disassembling?.Invoke();
         }
 
         private void OnOverSegments(int value) =>
             Disassembling?.Invoke();
 
-        //public void Dispose() => 
-        //    _tower.CountSegments.UnSubscribe(OnOverSegments);
     }
 }

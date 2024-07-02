@@ -10,6 +10,10 @@ namespace Shooting.Pool
 
         public event Action ProjectileReturn;
 
+
+        public void Initialisation(ProjectilePool pool) =>
+            _pool = pool;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Projectile projectile))
