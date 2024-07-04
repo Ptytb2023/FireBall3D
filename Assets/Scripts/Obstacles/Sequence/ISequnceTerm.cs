@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Obstacle.Sequence
+namespace Obstacles.Sequence
 {
     public interface ISequnceTerm
     {

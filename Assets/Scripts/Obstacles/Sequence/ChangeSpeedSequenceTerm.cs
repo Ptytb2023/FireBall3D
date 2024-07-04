@@ -1,5 +1,5 @@
-﻿using Obstacle;
-using Obstacle.Sequence;
+﻿using Obstacles;
+using Obstacles.Sequence;
 using Structures;
 using System.Collections;
 using UnityEngine;

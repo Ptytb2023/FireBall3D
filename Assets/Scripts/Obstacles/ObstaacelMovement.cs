@@ -1,14 +1,9 @@
 ﻿using Coroutines;
-using Obstacle;
-using Obstacle.Sequence;
+using Obstacles;
+using Obstacles.Sequence;
 using Obstaicel.Sequence;
 using Sequence;
 using Structures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Obstaicel

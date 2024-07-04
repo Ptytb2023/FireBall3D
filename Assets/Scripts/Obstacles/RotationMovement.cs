@@ -1,4 +1,4 @@
-﻿using Obstacle;
+﻿using Obstacles;
 using UnityEngine;
 
 namespace Obstaicel
