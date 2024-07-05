@@ -1,7 +1,9 @@
-﻿using ReactiveProperties;
-using Shooting.Pool;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using UnityEngine;
+
+using ReactiveProperties;
+using Shooting.Pool;
 using Towers;
 using Towers.Disassembling;
 using Towers.Effects;
@@ -9,11 +11,10 @@ using Towers.Generation;
 using Towers.Strucure;
 using Tweening;
 using UI.Towers;
-using UnityEngine;
 
 namespace Pathes.Buildes
 {
-    public class PathTowerBilder : MonoBehaviour
+    public class PathTowerBuilder : MonoBehaviour
     {
         [SerializeField] private Transform _towerRoot;
 
@@ -29,7 +30,7 @@ namespace Pathes.Buildes
         private TowerStructuresSo _structures;
 
 
-        public void Init(TowerStructuresSo structures)
+        public void Initialize(TowerStructuresSo structures)
         {
             _structures = structures;
         }

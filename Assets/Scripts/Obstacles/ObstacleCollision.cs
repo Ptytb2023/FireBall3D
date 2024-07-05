@@ -17,7 +17,7 @@ namespace Obstacles
         private ObstacleCollisionFeedback _feedback;
         private bool _hasAllradyCollider;
 
-        public void Initialized(ObstacleCollisionFeedback feedback) =>
+        public void Initialize(ObstacleCollisionFeedback feedback) =>
             _feedback = feedback;
 
         private void OnCollisionEnter(Collision other)

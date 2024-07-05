@@ -9,10 +9,10 @@ using UnityEngine;
 
 namespace Tweening
 {
-    [CreateAssetMenu(fileName = nameof(LocalMoveTween),
-        menuName = nameof(ScriptableObject) + "/" + nameof(Tweening) + "/" + nameof(LocalMoveTween),
+    [CreateAssetMenu(fileName = nameof(LocalMoveTweenSo),
+        menuName = nameof(ScriptableObject) + "/" + nameof(Tweening) + "/" + nameof(LocalMoveTweenSo),
         order = 51)]
-    public class LocalMoveTween : ScriptableObject, IAwaitableTweenAnimation, ITweenAnimation
+    public class LocalMoveTweenSo : ScriptableObject, IAwaitableTweenAnimation, ITweenAnimation
     {
         [SerializeField] private Vector3TweenData _move;
 

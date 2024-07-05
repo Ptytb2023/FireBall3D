@@ -7,7 +7,7 @@ namespace Obstacles
         [SerializeField]  private ObstacleCollision _obstacleCollision;
 
 
-        public void Initialized(ObstacleCollisionFeedback feedback) => 
-            _obstacleCollision.Initialized(feedback);
+        public void Initialize(ObstacleCollisionFeedback feedback) => 
+            _obstacleCollision.Initialize(feedback);
     }
 }

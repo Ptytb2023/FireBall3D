@@ -1,7 +1,4 @@
-﻿
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,7 +28,7 @@ namespace Obstacles
             for (int i = 0; i < count; i++)
             {
                 Obstacle newObstacle = UnityObject.Instantiate(_obstaclesPrefabs[i], root);
-                newObstacle.Initialized(_collisionFeedback);
+                newObstacle.Initialize(_collisionFeedback);
                 newObstacle.transform.eulerAngles = RandomVector3Y();
 
                 createdObtacles[i] = newObstacle;

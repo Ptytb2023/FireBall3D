@@ -4,13 +4,20 @@ using System.Collections.Generic;
 using Tweening;
 using UnityEngine;
 
-namespace Assets.Scripts.Pathes.Buildes
+namespace Pathes.Buildes
 {
-    public class PathObstacleBilder : MonoBehaviour
+    public class PathObstacleBuilder : MonoBehaviour
     {
-        [SerializeField] private Obstacle[] _obstaclePrefabs;
-        [SerializeField] private LocalMoveTween _moveTween;
+        [SerializeField] private Transform _root;
+        [SerializeField] private LocalMoveTweenSo _moveTween;
 
+        private IReadOnlyList<Obstacle> _obstaclePrefabs;
+
+
+        public void Initialize(IReadOnlyList<Obstacle> obstacles)
+        {
+            _obstaclePrefabs = obstacles;
+        }
 
         public ObstacleDisappering Build(ObstacleCollisionFeedback collisionFeedback)
         {
