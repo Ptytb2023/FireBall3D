@@ -60,7 +60,7 @@ namespace Obstacles
     }
 
     [Serializable]
-    public class ObstacleCollisionFeedback
+    public struct ObstacleCollisionFeedback
     {
         [field: SerializeField] public Transform Player { get; private set; }
         [field: SerializeField] public PlayerInputHandler PlayerInput { get; private set; }

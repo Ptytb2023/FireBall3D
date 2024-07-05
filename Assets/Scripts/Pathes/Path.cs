@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Obstacles;
+using Pathes.Buildes;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Pathes
@@ -8,5 +10,15 @@ namespace Pathes
         [SerializeField] private SegmentPath[] _segments;
 
         public IReadOnlyList<SegmentPath> Segments => _segments;
+
+        public void Initialize(IReadOnlyList<PathPlatfromStructure> paltformStructures,
+            ObstacleCollisionFeedback feedback)
+        {
+            for (int i = 0; i < paltformStructures.Count; i++)
+            {
+                PathPlatformBuilder builder = _segments[i].PathPlatformBuilder;
+                builder.Intialize(paltformStructures[i], feedback);
+            }
+        }
     }
 }

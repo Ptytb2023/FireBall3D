@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Pathes.Buildes
 {
     [Serializable]
-    public class PathPaltform
+    public struct PathPlatfromStructure
     {
         [field: SerializeField] public TowerStructuresSo TowerStructures { get; private set; }
         [field: SerializeField] public Obstacle[] ObstaclesPrefab { get; private set; }

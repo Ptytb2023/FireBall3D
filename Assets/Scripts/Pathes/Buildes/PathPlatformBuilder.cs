@@ -12,7 +12,7 @@ namespace Pathes.Buildes
         [SerializeField] private PathTowerBuilder _toweBuilder;
 
         private ObstacleCollisionFeedback _obstacleFeedback;
-        public void Intialize(PathPaltform pathPaltform, ObstacleCollisionFeedback obstacleCollisionFeedback)
+        public void Intialize(PathPlatfromStructure pathPaltform, ObstacleCollisionFeedback obstacleCollisionFeedback)
         {
             _toweBuilder.Initialize(pathPaltform.TowerStructures);
             _obstacleBilder.Initialize(pathPaltform.ObstaclesPrefab);

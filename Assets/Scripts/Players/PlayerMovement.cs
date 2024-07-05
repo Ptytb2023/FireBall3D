@@ -16,11 +16,13 @@ namespace Players
 
         [SerializeField] private Transform _player;
 
-        public void StartMovingOn(Path path)
+        public void StartMovingOn(Path path, Vector3 initialPosition)
         {
+            _player.position = initialPosition;
+
             new PlayerPathFollowing(
                 new PathFolowing(path, _movebelPreferenceSo, _player),
-                path, 
+                path,
                 _playerInputHandler).StartMovingAsync();
         }
     }
