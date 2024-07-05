@@ -11,6 +11,7 @@ namespace Pathes.Buildes
         [SerializeField] private PathObstacleBuilder _obstacleBilder;
         [SerializeField] private PathTowerBuilder _toweBuilder;
 
+
         private ObstacleCollisionFeedback _obstacleFeedback;
         public void Intialize(PathPlatfromStructure pathPaltform, ObstacleCollisionFeedback obstacleCollisionFeedback)
         {
