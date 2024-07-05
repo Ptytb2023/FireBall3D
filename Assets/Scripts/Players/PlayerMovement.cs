@@ -1,15 +1,10 @@
 ﻿using Inputs;
 using Pathes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Players
 {
-    public class PlayerMovement
+    public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private MovebelPreferenceSo _movebelPreferenceSo;
         [SerializeField] private PlayerInputHandler _playerInputHandler;

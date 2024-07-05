@@ -17,7 +17,7 @@ namespace Obstacles
             ObstacleCollisionFeedback collisionFeedback)
         {
             _obstaclesPrefabs = obstaclesPrefabs ?? throw new ArgumentNullException(nameof(obstaclesPrefabs));
-            _collisionFeedback = collisionFeedback ?? throw new ArgumentNullException(nameof(collisionFeedback));
+            _collisionFeedback = collisionFeedback; 
         }
 
         public IEnumerable<Obstacle> Creat(Transform root)

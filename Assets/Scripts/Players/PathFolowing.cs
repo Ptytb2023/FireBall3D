@@ -33,6 +33,7 @@ namespace Players
             SegmentPath segmentPath = _path.Segments[_currentIndexPath];
 
             await MoveToPoitns(_follower, segmentPath.Waypoints);
+            _currentIndexPath++;
         }
 
         private async Task MoveToPoitns(Transform follower, IReadOnlyList<Transform> waypoints)

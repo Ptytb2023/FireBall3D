@@ -7,7 +7,7 @@ namespace Characters
         order = 51)]
     public class CharacterContainerSo : ScriptableObject
     {
-        [SerializeField] private Character CharacterPrefab { get; set; }
+        [field:SerializeField] private Character CharacterPrefab { get; set; }
 
         public Character Creat(Transform parent) =>
             Instantiate(CharacterPrefab, parent);

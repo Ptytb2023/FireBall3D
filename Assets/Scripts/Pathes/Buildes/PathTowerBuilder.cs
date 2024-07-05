@@ -59,8 +59,8 @@ namespace Pathes.Buildes
 
             IReadOnlyReactiveProperty<int> segmentCount = tower.CountSegments;
 
-            segmentCount.Subscribe(_segmentsCountLeft.UpdateTextValue);
-            segmentCount.Subscribe(_audio.PlaySound);
+            segmentCount.SubscribeAndUpdate(_segmentsCountLeft.UpdateTextValue);
+            segmentCount.SubscribeAndUpdate(_audio.PlaySound);
 
 
             _unsubscribe = () =>

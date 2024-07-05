@@ -31,7 +31,7 @@ namespace Levels.Generation
             Path path = Instantiate(_pathPrefab, root);
             path.Initialize(_plaforms, feedback);
 
-            return path;    
+            return path;
         }
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-using Animation;
 using UnityObject = UnityEngine.Object;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -52,14 +51,16 @@ namespace Towers.Generation
                     break;
 
                 SegmentPlatform platform = CreatPlatform(tower, postionSpawn, i);
-                platform.gameObject.SetActive(false);
+                platform.gameObject.SetActive(true);
 
                 postionSpawn = NextPostionAfter(postionSpawn, platform);
 
                 segments.Enqueue(platform);
+                CreatSegment?.Invoke(i + 1);
 
                 await ApllayDelay(delay, cancellationToken);
             }
+
 
             return new Tower(segments);
         }
