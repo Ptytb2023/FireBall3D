@@ -6,7 +6,7 @@ using UnityObject = UnityEngine.Object;
 
 namespace Towers.Disassembling
 {
-    public class TowerDisassembling 
+    public class TowerDisassembling
     {
         private Transform _rootTower;
         private readonly Tower _tower;
@@ -41,5 +41,10 @@ namespace Towers.Disassembling
         private void OnOverSegments(int value) =>
             Disassembling?.Invoke();
 
+
+        public TowerDisassemblingAwaiter GetAwaiter()
+        {
+            return new TowerDisassemblingAwaiter(this);
+        }
     }
 }

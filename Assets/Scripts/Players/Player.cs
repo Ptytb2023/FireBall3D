@@ -5,37 +5,33 @@ using Characters;
 using Pathes;
 using Shooting.Pool;
 
-namespace PlayerComponent
+namespace Players
 {
     public class Player : MonoBehaviour
     {
         [Header("Input")]
-        [SerializeField] private InputWeapon _weaponInput;
+        [SerializeField] private PlayerInputHandler _weaponInput;
 
         [Header("Visual")]
         [SerializeField] private CharacterContainerSo _caharcerContainer;
 
         [Header("Setting")]
-        [SerializeField] private MovebelPreferenceSo _movebelPreferenceSo;
+
         [SerializeField] private ShootingPreferenceSo _shootingPreference;
-        [SerializeField] private Path _path;
 
         [Space]
         [SerializeField] private ProjectilePool _pool;
 
 
-        private MovebelByPath _movebel;
         private FireRate _fireRate;
         private Weapon _weapon;
 
-        private void Awake()
+        private void Start()
         {
             Character character = _caharcerContainer.Creat(transform);
 
             _weapon = new Weapon(character.ShootPoint, _pool, _shootingPreference.speedBullet);
             _fireRate = new FireRate(_shootingPreference.FireRate);
-
-            _movebel = new MovebelByPath(_path, _movebelPreferenceSo, this);
         }
 
         private void OnEnable()
@@ -51,8 +47,5 @@ namespace PlayerComponent
         private void TryAction() =>
             _fireRate.TryShoot(_weapon);
 
-        [ContextMenu(nameof(Move))]
-        public void Move() =>
-            _movebel.MoveToNext();
     }
 }

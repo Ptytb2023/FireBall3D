@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Structures
+namespace Structures
 {
     public class UnityTime
     {

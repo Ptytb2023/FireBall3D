@@ -43,8 +43,8 @@ namespace Pathes
         {
             Transform[] waypoints = Array.Empty<Transform>();
 
-            foreach (var segmentPoints in _path.Pathes)
-                waypoints = waypoints.Union(segmentPoints.Points).ToArray();
+            foreach (var segmentPoints in _path.Segments)
+                waypoints = waypoints.Union(segmentPoints.Waypoints).ToArray();
 
             return waypoints;
         }

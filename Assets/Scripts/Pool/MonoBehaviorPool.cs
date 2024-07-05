@@ -10,7 +10,7 @@ namespace Pool
         private PoolComponent<T> _pool;
 
 
-        public void Init(IFactory<T> factory, int capacity)
+        public void Initialize(IFactory<T> factory, int capacity)
         {
             _pool = new PoolComponent<T>(_root, factory, capacity);
             Prewarm();

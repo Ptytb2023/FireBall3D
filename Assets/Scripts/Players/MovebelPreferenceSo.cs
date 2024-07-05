@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PlayerComponent
+namespace Players
 {
     [CreateAssetMenu(fileName = nameof(MovebelPreferenceSo),
         menuName = nameof(ScriptableObject) + "/" + nameof(Pathes) + "/" + nameof(MovebelPreferenceSo),

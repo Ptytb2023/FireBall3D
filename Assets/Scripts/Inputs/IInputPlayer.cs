@@ -3,7 +3,7 @@ using System;
 
 namespace Inputs
 {
-    public interface IInputWeapon
+    public interface IInputPlayer
     {
 
         public event Action Begin;

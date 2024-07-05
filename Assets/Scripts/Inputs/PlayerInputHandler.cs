@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Inputs
 {
-    public class InputWeapon : MonoBehaviour, IInputWeapon
+    public class PlayerInputHandler : MonoBehaviour, IInputPlayer
     {
         private InputPlayerAction _inputAction;
 
@@ -31,7 +31,13 @@ namespace Inputs
             _inputAction.Weapon.Shoot.performed -= stx => OnPerfomed();
             _inputAction.Weapon.Shoot.canceled -= stx => OnCanceled();
         }
-      
+
+        public void Enable() =>
+            enabled = true;
+
+        public void Disable() =>
+            enabled = false;
+
 
         private void OnPerfomed()
         {

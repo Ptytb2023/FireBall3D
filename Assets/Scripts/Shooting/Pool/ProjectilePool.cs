@@ -1,6 +1,5 @@
 ﻿using Factores;
 using Pool;
-using Shooting;
 using UnityEngine;
 
 namespace Shooting.Pool
@@ -14,7 +13,7 @@ namespace Shooting.Pool
         private void Awake()
         {
             IFactory<Projectile> factory = new FactoryComponent<Projectile>(_shootingPreferenceSo.Projectile);
-            Init(factory, _capacity);
+            Initialize(factory, _capacity);
         }
 
     }

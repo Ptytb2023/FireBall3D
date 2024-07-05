@@ -5,8 +5,8 @@ namespace Pathes
 {
     public class Path : MonoBehaviour
     {
-        [SerializeField] private SegmentPath[] pathes;
+        [SerializeField] private SegmentPath[] _segments;
 
-        public IReadOnlyList<SegmentPath> Pathes => pathes;
+        public IReadOnlyList<SegmentPath> Segments => _segments;
     }
 }

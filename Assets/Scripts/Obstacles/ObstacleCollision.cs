@@ -29,7 +29,7 @@ namespace Obstacles
                 return;
 
             ProjectilePool pool = _feedback.PlayerProjectilePool;
-            InputWeapon playInput = _feedback.PlayerInput;
+            PlayerInputHandler playInput = _feedback.PlayerInput;
 
             _hasAllradyCollider = true;
 
@@ -63,7 +63,7 @@ namespace Obstacles
     public class ObstacleCollisionFeedback
     {
         [field: SerializeField] public Transform Player { get; private set; }
-        [field: SerializeField] public InputWeapon PlayerInput { get; private set; }
+        [field: SerializeField] public PlayerInputHandler PlayerInput { get; private set; }
         [field: SerializeField] public ProjectilePool PlayerProjectilePool { get; private set; }
     }
 }
