@@ -15,7 +15,7 @@ MonoBehaviour:
   _pathPrefab: {fileID: 7391479580616015002, guid: 20b8f79e14508ed4f9a163a3847d0dbd,
     type: 3}
   _plaforms:
-  - <TowerStructures>k__BackingField: {fileID: 11400000, guid: 3c5666c1c56e8d24897a169c472ac00a,
+  - <TowerStructures>k__BackingField: {fileID: 11400000, guid: 94c8ed8d5f2241e468ca667b682b3fb7,
       type: 2}
     <ObstaclesPrefab>k__BackingField:
     - {fileID: 4222508107409504417, guid: 539576a51ed500e47abf714b0ac6ebcc, type: 3}
