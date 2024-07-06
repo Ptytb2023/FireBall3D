@@ -18,12 +18,12 @@ MonoBehaviour:
   m_GUID: add940264e02a834c91f2f61f4f928ba
   m_SerializeEntries:
   - m_GUID: daeaa0edd6a645041871032d93bbab7f
-    m_Address: Assets/Scenes/Locations/DesertLocation/Desert1.unity
+    m_Address: Desert1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe3d4ac3b468d9f449667125749d5016
-    m_Address: Assets/Scenes/Locations/DesertLocation/Desert2.unity
+    m_Address: Desert2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

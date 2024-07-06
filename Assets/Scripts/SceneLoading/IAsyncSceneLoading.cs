@@ -5,7 +5,7 @@ namespace SceneLoading
 {
     public interface IAsyncSceneLoading
     {
-        public Task<AsyncOperation> LoadAsync(Scene scene);
-        public Task<AsyncOperation> UnLoadAsync(Scene scene);
+        public Task LoadAsync(Scene scene);
+        public Task UnLoadAsync(Scene scene);
     }
 }

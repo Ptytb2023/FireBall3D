@@ -1,20 +1,16 @@
 ﻿using Obstacles;
 using Pathes;
 using Players;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Levels.Generation
 {
-    public class LevelBuilder : MonoBehaviour 
+    public class LevelBuilder : MonoBehaviour
     {
         [Header("Path")]
         [SerializeField] private Transform _pathRoot;
-        [SerializeField] private LevelesStructuresSo _structures;
+        [SerializeField] private LevelesStructuresSo[] _structures;
 
 
         [Header("Player")]
@@ -28,11 +24,20 @@ namespace Levels.Generation
 
         public void Build()
         {
-            Path path = _structures.CreatPath(_pathRoot, _obstacleCollisionFeedback);
+            var structures = GetRandomStructuresSo();
+
+            Path path = structures.CreatPath(_pathRoot, _obstacleCollisionFeedback);
 
             Vector3 initialPostion = path.Segments[0].Waypoints[0].position;
 
             _playerMovemet.StartMovingOn(path, initialPostion);
+        }
+
+        private LevelesStructuresSo GetRandomStructuresSo()
+        {
+            int index = Random.Range(0, _structures.Length);
+            return _structures[index];
+
         }
     }
 }
