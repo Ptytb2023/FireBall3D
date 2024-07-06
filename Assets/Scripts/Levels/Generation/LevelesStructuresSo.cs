@@ -2,6 +2,7 @@
 using Pathes;
 using Pathes.Buildes;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace Levels.Generation
@@ -26,10 +27,10 @@ namespace Levels.Generation
             }
         }
 
-        public Path CreatPath(Transform root, ObstacleCollisionFeedback feedback)
+        public Path CreatPath(Transform root, ObstacleCollisionFeedback feedback, CancellationTokenSource cancellationTokenSource)
         {
             Path path = Instantiate(_pathPrefab, root);
-            path.Initialize(_plaforms, feedback);
+            path.Initialize(_plaforms, feedback, cancellationTokenSource);
 
             return path;
         }

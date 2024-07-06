@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 65a3ac09899d5ce468b0f345a2a6d38f
   m_SerializeEntries:
   - m_GUID: 37dd03478db1669449e0733ab2c184f4
-    m_Address: Assets/Scenes/Locations/ArticlesLocations/Article1.unity
+    m_Address: Article1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Towers.Disassembling;
 
@@ -18,12 +19,13 @@ namespace Players
 
         public PlayerPathFollowing(PathFolowing pathFolowing, Path path, PlayerInputHandler playerInputHandler)
         {
+
             _pathFolowing = pathFolowing;
             _path = path;
             _playerInputHandler = playerInputHandler;
         }
 
-        public async void StartMovingAsync()
+        public async void StartMovingAsync(CancellationToken cancellationToken)
         {
             IReadOnlyList<SegmentPath> segments = _path.Segments;
 
@@ -35,6 +37,9 @@ namespace Players
 
                 (TowerDisassembling towerDisassembling, ObstacleDisappering obstacleDisappering)
                       = await pathSegment.PathPlatformBuilder.BuildAsync();
+
+                if (cancellationToken.IsCancellationRequested)
+                    return;
 
                 _playerInputHandler.Enable();
 

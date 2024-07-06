@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelEntryStateSo
   m_EditorClassIdentifier: 
   _locationScene:
-    <Name>k__BackingField: Desert1
+    <Name>k__BackingField: Article1
     <LoadMode>k__BackingField: 0
     <UnloadMode>k__BackingField: 0
   _playerGeneratedPathScene:
