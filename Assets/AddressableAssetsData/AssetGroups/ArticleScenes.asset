@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: ArticleScenes
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: ArticleScenes
   m_Data:
     m_SerializedData: []
-  m_GUID: 6683d18e036f02148aacb57658f5ec18
-  m_SerializeEntries: []
+  m_GUID: 65a3ac09899d5ce468b0f345a2a6d38f
+  m_SerializeEntries:
+  - m_GUID: 37dd03478db1669449e0733ab2c184f4
+    m_Address: Assets/Scenes/Locations/ArticlesLocations/Article1.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4a1fe471097880941af8046be3e5192b, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2e19d03d3b4edce488e8d7b64a6e5d20, type: 2}
-    - {fileID: 11400000, guid: fad686bf27560dc4cae0e9ae3fe2855a, type: 2}
+    - {fileID: 11400000, guid: b9d7af191d63b884aaaac4d5f004ba6e, type: 2}
+    - {fileID: 11400000, guid: cb873101686183c4b82d5c954cc93b32, type: 2}

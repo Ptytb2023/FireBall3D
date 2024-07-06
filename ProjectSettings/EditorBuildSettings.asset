@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Menu/Menu.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Locations/ArticsLocations/Arctic1.unity
+  - enabled: 0
+    path: Assets/Scenes/Locations/ArticlesLocations/Article1.unity
     guid: 37dd03478db1669449e0733ab2c184f4
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b5702c69a98214845a47cb6a14da0efe,
