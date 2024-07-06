@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931ec38979ddea74da71a292a43074a0, type: 3}
-  m_Name: LevelEntryStateSo
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Default Local Group_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  _scene:
-    <Name>k__BackingField: Arctic1
-    <LoadMode>k__BackingField: 0
-    <UnloadMode>k__BackingField: 0
+  m_Group: {fileID: 11400000, guid: 553eebd7702530643b8c46fbbd242010, type: 2}
+  m_StaticContent: 0
