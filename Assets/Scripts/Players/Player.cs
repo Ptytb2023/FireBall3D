@@ -4,6 +4,7 @@ using Inputs;
 using Characters;
 using Pathes;
 using Shooting.Pool;
+using System;
 
 namespace Players
 {
@@ -26,6 +27,8 @@ namespace Players
         private FireRate _fireRate;
         private Weapon _weapon;
 
+        public event Action Dead;
+
         private void Start()
         {
             Character character = _caharcerContainer.Creat(transform);
@@ -46,6 +49,12 @@ namespace Players
 
         private void TryAction() =>
             _fireRate.TryShoot(_weapon);
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Projectile _))
+                Dead?.Invoke();
+        }
 
     }
 }

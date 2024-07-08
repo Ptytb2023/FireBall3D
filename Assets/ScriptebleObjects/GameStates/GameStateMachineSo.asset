@@ -15,3 +15,4 @@ MonoBehaviour:
   _states:
   - {fileID: 11400000, guid: aa5c379d3d77e134d95f330f1b23bf77, type: 2}
   - {fileID: 11400000, guid: fe1f3c0cd287236439d21fbfb9d71fa9, type: 2}
+  - {fileID: 11400000, guid: 01f1e22a62720a74faa266e4249fa140, type: 2}
