@@ -1,5 +1,5 @@
-﻿using GameStates;
-using GameStates.Base;
+﻿using GameStates.Base;
+using GameStates.States;
 using UnityEngine;
 using UnityEngine.UI;
 

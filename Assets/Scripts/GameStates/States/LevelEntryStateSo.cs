@@ -7,7 +7,7 @@ using Scene = SceneLoading.Scene;
 using Tools;
 using Levels;
 
-namespace GameStates
+namespace GameStates.States
 {
     [CreateAssetMenu(fileName = nameof(LevelEntryStateSo),
         menuName = nameof(ScriptableObject) + "/" + nameof(GameStates) + "/" + nameof(LevelEntryStateSo),

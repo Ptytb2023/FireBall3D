@@ -227,4 +227,5 @@ MonoBehaviour:
   _movebelPreferenceSo: {fileID: 11400000, guid: 079df9d3db66fd64f95621987e7ceb8c,
     type: 2}
   _playerInputHandler: {fileID: 2026029771046917004}
+  _gameStateMachine: {fileID: 11400000, guid: 50bafaf498e1a2a41a5cf84c85a4992b, type: 2}
   _player: {fileID: 4978413113946980450}
