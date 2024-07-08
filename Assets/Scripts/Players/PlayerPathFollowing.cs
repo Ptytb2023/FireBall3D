@@ -17,7 +17,7 @@ namespace Players
         private readonly Path _path;
         private readonly PlayerInputHandler _playerInputHandler;
 
-        public PlayerPathFollowing(PathFolowing pathFolowing, Path path, PlayerInputHandler playerInputHandler)
+        public PlayerPathFollowing(PathFolowing pathFolowing, Path path, PlayerInputHandler playerInputHandler )
         {
 
             _pathFolowing = pathFolowing;
@@ -38,7 +38,7 @@ namespace Players
                 (TowerDisassembling towerDisassembling, ObstacleDisappering obstacleDisappering)
                       = await pathSegment.PathPlatformBuilder.BuildAsync();
 
-                if (cancellationToken.IsCancellationRequested)
+                if(cancellationToken.IsCancellationRequested)
                     return;
 
                 _playerInputHandler.Enable();
