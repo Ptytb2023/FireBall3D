@@ -7,9 +7,9 @@ namespace Levels
     [CreateAssetMenu(fileName = nameof(LevelsStoreSo),
     menuName = nameof(ScriptableObject) + "/" + nameof(Levels) + "/" + nameof(LevelsStoreSo),
     order = 51)]
-    public class LevelsStoreSo
+    public class LevelsStoreSo : ScriptableObject
     {
-        [SerializeField] private Level[] _levels = Array.Empty<Level>();    
+        [SerializeField] private Level[] _levels = Array.Empty<Level>();
 
         public IReadOnlyList<Level> Levles => _levels;
     }

@@ -218,9 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathRoot: {fileID: 199916909}
-  _structures:
-  - {fileID: 11400000, guid: d79b193460e403944a0edffc6412a3cf, type: 2}
-  - {fileID: 11400000, guid: dbbf6e1a6b37abc40a2ce09ce4dcac58, type: 2}
+  _pathStructerContanier: {fileID: 11400000, guid: 1d6615ab8f2890443b1d45cba3605c11,
+    type: 2}
   _playerMovemet: {fileID: 2075854483574684204}
   _obstacleCollisionFeedback:
     <Player>k__BackingField: {fileID: 56015381}

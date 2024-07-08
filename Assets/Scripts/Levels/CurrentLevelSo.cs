@@ -18,7 +18,7 @@ namespace Levels
 
         public void StepToNextLevel()
         {
-            int min = 0;
+            int min = 1;
             int max = _strorage.Levles.Count;
 
             _levelNumber.Value = Mathf.Clamp(_levelNumber.Value + 1, min, max);

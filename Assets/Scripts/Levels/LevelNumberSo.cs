@@ -7,6 +7,6 @@ namespace Levels
      order = 51)]
     public class LevelNumberSo : ScriptableObject
     {
-        public int Value { get; set; }
+        [field: SerializeField] public int Value { get; set; } = 1;
     }
 }

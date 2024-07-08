@@ -3,8 +3,9 @@ using Pathes;
 using Players;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using System.ComponentModel.Composition;
 using System.Threading;
+using UnityObject = UnityEngine.Object;
+using Tools;
 
 namespace Levels.Generation
 {
@@ -12,7 +13,7 @@ namespace Levels.Generation
     {
         [Header("Path")]
         [SerializeField] private Transform _pathRoot;
-        [SerializeField] private PathStructuresSo[] _structures;
+        [SerializeField] private UnityObject _pathStructerContanier;
 
 
         [Header("Player")]
@@ -21,15 +22,20 @@ namespace Levels.Generation
 
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
-        private void Start() => 
+        private IPathStructuresContaner PathStructuresContaner => (IPathStructuresContaner)_pathStructerContanier;
+
+        private void OnValidate() => 
+            Inspector.ValidateOn<IPathStructuresContaner>(ref _pathStructerContanier);
+
+        private void Start() =>
             Build();
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             _cancellationTokenSource.Cancel();
 
         public void Build()
         {
-            var structures = GetRandomStructuresSo();
+            var structures = PathStructuresContaner.Value;
 
             Path path = structures.CreatPath(_pathRoot, _obstacleCollisionFeedback, _cancellationTokenSource);
 
@@ -38,11 +44,6 @@ namespace Levels.Generation
             _playerMovemet.StartMovingOn(path, initialPostion, _cancellationTokenSource);
         }
 
-        private PathStructuresSo GetRandomStructuresSo()
-        {
-            int index = Random.Range(0, _structures.Length);
-            return _structures[index];
 
-        }
     }
 }

@@ -15,12 +15,12 @@ MonoBehaviour:
   _pathPrefab: {fileID: 4749956196055690518, guid: 8f7efbbb8ec837e44b2011a81da1168a,
     type: 3}
   _plaforms:
-  - <TowerStructures>k__BackingField: {fileID: 11400000, guid: fad3086a4ac3ab847af113431816eb8f,
+  - <TowerStructures>k__BackingField: {fileID: 11400000, guid: 94c8ed8d5f2241e468ca667b682b3fb7,
       type: 2}
     <ObstaclesPrefab>k__BackingField:
     - {fileID: 4222508107409504417, guid: 539576a51ed500e47abf714b0ac6ebcc, type: 3}
     - {fileID: 4222508107409504417, guid: 539576a51ed500e47abf714b0ac6ebcc, type: 3}
-  - <TowerStructures>k__BackingField: {fileID: 11400000, guid: 3c5666c1c56e8d24897a169c472ac00a,
+  - <TowerStructures>k__BackingField: {fileID: 11400000, guid: b959d03181c97fa478995c13c468bd4d,
       type: 2}
     <ObstaclesPrefab>k__BackingField:
     - {fileID: 4222508107409504417, guid: 539576a51ed500e47abf714b0ac6ebcc, type: 3}

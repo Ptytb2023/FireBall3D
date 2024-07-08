@@ -35,7 +35,7 @@ namespace Menu.Levels
             for (int i = 0; i < NextLevelNumber - 1; i++)
                 _levels[i].PaintNumber(_levelsColor.PassedLevels);
 
-            for (int i = NextLevelNumber; i < _levels.Length - 1; i++)
+            for (int i = NextLevelNumber; i < _levels.Length; i++)
                 _levels[i].PaintNumber(_levelsColor.NextLevels);
 
         }
