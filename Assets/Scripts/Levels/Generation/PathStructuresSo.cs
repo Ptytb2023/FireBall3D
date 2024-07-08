@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace Levels.Generation
 {
-    [CreateAssetMenu(fileName = nameof(LevelesStructuresSo),
-        menuName = nameof(ScriptableObject) + "/" + nameof(Levels) + "/" + nameof(LevelesStructuresSo),
+    [CreateAssetMenu(fileName = nameof(PathStructuresSo),
+        menuName = nameof(ScriptableObject) + "/" + nameof(Levels) + "/" + nameof(PathStructuresSo),
         order = 51)]
-    public class LevelesStructuresSo : ScriptableObject
+    public class PathStructuresSo : ScriptableObject
     {
         [SerializeField] private Path _pathPrefab;
         [SerializeField] List<PathPlatfromStructure> _plaforms = new();

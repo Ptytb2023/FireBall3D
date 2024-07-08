@@ -12,7 +12,7 @@ namespace Levels.Generation
     {
         [Header("Path")]
         [SerializeField] private Transform _pathRoot;
-        [SerializeField] private LevelesStructuresSo[] _structures;
+        [SerializeField] private PathStructuresSo[] _structures;
 
 
         [Header("Player")]
@@ -38,7 +38,7 @@ namespace Levels.Generation
             _playerMovemet.StartMovingOn(path, initialPostion, _cancellationTokenSource);
         }
 
-        private LevelesStructuresSo GetRandomStructuresSo()
+        private PathStructuresSo GetRandomStructuresSo()
         {
             int index = Random.Range(0, _structures.Length);
             return _structures[index];
