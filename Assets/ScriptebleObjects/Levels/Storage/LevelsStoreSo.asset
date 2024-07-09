@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d094b8384a213ab4e914288c502dde95, type: 3}
+  m_Name: LevelsStoreSo
+  m_EditorClassIdentifier: 
+  _levels:
+  - <LocationScene>k__BackingField:
+      <Name>k__BackingField: Article1
+      <LoadMode>k__BackingField: 0
+      <UnloadMode>k__BackingField: 0
+    <PathStructuresSo>k__BackingField: {fileID: 11400000, guid: d79b193460e403944a0edffc6412a3cf,
+      type: 2}
+  - <LocationScene>k__BackingField:
+      <Name>k__BackingField: Desert1
+      <LoadMode>k__BackingField: 0
+      <UnloadMode>k__BackingField: 0
+    <PathStructuresSo>k__BackingField: {fileID: 11400000, guid: dbbf6e1a6b37abc40a2ce09ce4dcac58,
+      type: 2}
+  - <LocationScene>k__BackingField:
+      <Name>k__BackingField: Desert2
+      <LoadMode>k__BackingField: 0
+      <UnloadMode>k__BackingField: 0
+    <PathStructuresSo>k__BackingField: {fileID: 11400000, guid: 7a0bdb85255733b42b524395157804aa,
+      type: 2}

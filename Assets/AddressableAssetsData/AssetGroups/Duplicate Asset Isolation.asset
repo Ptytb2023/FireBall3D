@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 33907eadc9754e2408625048dec15b2a
+  m_SerializeEntries:
+  - m_GUID: 50bafaf498e1a2a41a5cf84c85a4992b
+    m_Address: Assets/ScriptebleObjects/GameStates/GameStateMachineSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfd15abd4a6f253429df13c2bc3ff73e
+    m_Address: Assets/ScriptebleObjects/GameStates/States/MenuEntryState.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa5c379d3d77e134d95f330f1b23bf77
+    m_Address: Assets/ScriptebleObjects/GameStates/States/LevelEntryStateSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 872617352ea2a4f4d8b4c53d0979dab1
+    m_Address: Assets/ScriptebleObjects/Levels/CurrentLevelSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a73bec87bb9f15749a9f7dc97dc3dd56
+    m_Address: Assets/ScriptebleObjects/Levels/Storage/LevelsStoreSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbbf6e1a6b37abc40a2ce09ce4dcac58
+    m_Address: Assets/ScriptebleObjects/Levels/Storage/PathStructure/(#2)Level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94c8ed8d5f2241e468ca667b682b3fb7
+    m_Address: Assets/ScriptebleObjects/Tower/TowerStructuresSo20Segment 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ec63efd811fba744a3c2155c20d9bea
+    m_Address: Assets/Materials/Platforms/SegmentPlatform/m_Red.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 101b694a6aede6344bbe1ab9caf05723
+    m_Address: Assets/Prefabs/Paltforms/SegmentPlatform/Pipe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e29eec5587511b4aa8b365561750ad4
+    m_Address: Assets/Materials/Platforms/SegmentPlatform/m_Green.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f7efbbb8ec837e44b2011a81da1168a
+    m_Address: Assets/Prefabs/Paltforms/Pathes/Path2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce991a822c3c7ce4dbb61eae41ed5798
+    m_Address: Assets/ScriptebleObjects/Tweening/ObstacleAnimation.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b2b352d3a9217b42b118adc56cadfc5
+    m_Address: Assets/ScriptebleObjects/Tweening/FastRotationTweenSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7b508003d4ca62499f3e2d3cd30bdbd
+    m_Address: Assets/Audio/UISfx/glass_006.ogg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c5ee151f9307453bad78be36b51a077
+    m_Address: Assets/Fonts/LilitaOne-Regular Outline 64 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 542168a59ebb940cc91d3c3ec1325445
+    m_Address: Assets/Fonts/LilitaOne-Regular Outline 64 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 373ee5ee72fef7545b3570d98e0cf55a
+    m_Address: Assets/Materials/Platforms/Parts/m_PlatformWhite.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 539576a51ed500e47abf714b0ac6ebcc
+    m_Address: Assets/Prefabs/Obstacel/Obstacel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 842b131d75b15624ca0f45054498be17
+    m_Address: Assets/Materials/Platforms/Obstacel/m_ObstacelLightGrey.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 353b03f44b94dd141a1ad92d148a1b15
+    m_Address: Assets/ScriptebleObjects/DirectionBouncedPreferenceSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b959d03181c97fa478995c13c468bd4d
+    m_Address: Assets/ScriptebleObjects/Tower/TowerStructuresSo40Segment 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 165b6bf687f1de14bb5bc607522f7e0c
+    m_Address: Assets/Materials/Platforms/SegmentPlatform/m_Yelow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a0bdb85255733b42b524395157804aa
+    m_Address: Assets/ScriptebleObjects/Levels/Storage/PathStructure/(#3)Level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20b8f79e14508ed4f9a163a3847d0dbd
+    m_Address: Assets/Prefabs/Paltforms/Pathes/Path1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fad3086a4ac3ab847af113431816eb8f
+    m_Address: Assets/ScriptebleObjects/Tower/TowerStructuresSo30Segment 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c5666c1c56e8d24897a169c472ac00a
+    m_Address: Assets/ScriptebleObjects/Tower/TowerStructuresSo60Segment.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d2b657372818624fad8d9b8ab5d9734
+    m_Address: Assets/Materials/Platforms/SegmentPlatform/m_Magnete.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d79b193460e403944a0edffc6412a3cf
+    m_Address: Assets/ScriptebleObjects/Levels/Storage/PathStructure/(#1)Level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ceee9f1000d5f843859dda47b89289c
+    m_Address: Assets/ScriptebleObjects/Levels/Storage/LevelNumberSo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe1f3c0cd287236439d21fbfb9d71fa9
+    m_Address: Assets/ScriptebleObjects/GameStates/States/LevelComplitedState.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01f1e22a62720a74faa266e4249fa140
+    m_Address: Assets/ScriptebleObjects/GameStates/States/LevelLostState.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31321ba15b8f8eb4c954353edc038b1d
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4a1fe471097880941af8046be3e5192b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6a63773ef5eadb34a861b071559aacf8, type: 2}
+    - {fileID: 11400000, guid: 7780e122585fa274d9d541496a56ebf3, type: 2}

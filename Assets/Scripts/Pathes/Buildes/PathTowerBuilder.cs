@@ -11,6 +11,7 @@ using Towers.Generation;
 using Towers.Strucure;
 using Tweening;
 using UI.Towers;
+using System.Threading;
 
 namespace Pathes.Buildes
 {
@@ -29,9 +30,11 @@ namespace Pathes.Buildes
         private Action _unsubscribe;
         private TowerStructuresSo _structures;
 
+        private CancellationTokenSource _cancellationTokenSource;
 
-        public void Initialize(TowerStructuresSo structures)
+        public void Initialize(TowerStructuresSo structures, CancellationTokenSource cancellationTokenSource)
         {
+            _cancellationTokenSource = cancellationTokenSource;
             _structures = structures;
         }
 
@@ -43,10 +46,13 @@ namespace Pathes.Buildes
             TowerGeneration generation = new TowerGeneration(_structures);
             generation.CreatSegment += _segmentsCountLeft.UpdateTextValue;
 
-            Tower tower = await generation.CreatAsync(_towerRoot);
+            Tower tower = await generation.CreatAsync(_towerRoot, _cancellationTokenSource.Token);
 
             float stepRotationYByDisassembling = _structures.StepRotationYByDisassembling;
             TowerDisassembling disassembling = new TowerDisassembling(_towerRoot, tower, stepRotationYByDisassembling);
+
+            if(_cancellationTokenSource.IsCancellationRequested)
+                return disassembling;
 
             SubscribeComponents(generation, tower, disassembling);
 

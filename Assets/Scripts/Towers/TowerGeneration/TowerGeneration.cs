@@ -36,7 +36,7 @@ namespace Towers.Generation
             _cancellationTokenSource.Dispose();
         }
 
-        private async Task<Tower> CreatAsync(Transform tower, CancellationToken cancellationToken)
+        public async Task<Tower> CreatAsync(Transform tower, CancellationToken cancellationToken)
         {
             Vector3 postionSpawn = tower.position;
             int countSegment = _strucures.SegmentCount;
@@ -47,9 +47,6 @@ namespace Towers.Generation
 
             for (int i = 0; i < countSegment; i++)
             {
-                if (cancellationToken.IsCancellationRequested)
-                    break;
-
                 SegmentPlatform platform = CreatPlatform(tower, postionSpawn, i);
                 platform.gameObject.SetActive(true);
 
@@ -59,6 +56,9 @@ namespace Towers.Generation
                 CreatSegment?.Invoke(i + 1);
 
                 await ApllayDelay(delay, cancellationToken);
+
+                if (cancellationToken.IsCancellationRequested)
+                    break;
             }
 
 
@@ -70,6 +70,9 @@ namespace Towers.Generation
             TimeSpan delay = TimeSpan.FromSeconds(second);
 
             await Task.Delay(delay, cancellationToken);
+
+            if (cancellationToken.IsCancellationRequested)
+                return;
         }
 
         private SegmentPlatform CreatPlatform(Transform tower, Vector3 postionSpawn, int nuberOfInstancei)
