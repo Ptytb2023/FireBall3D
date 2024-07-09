@@ -2,10 +2,8 @@
 using Pathes;
 using Players;
 using UnityEngine;
-using Random = UnityEngine.Random;
 using System.Threading;
-using UnityObject = UnityEngine.Object;
-using Tools;
+using Zenject;
 
 namespace Levels.Generation
 {
@@ -13,7 +11,6 @@ namespace Levels.Generation
     {
         [Header("Path")]
         [SerializeField] private Transform _pathRoot;
-        [SerializeField] private UnityObject _pathStructerContanier;
 
 
         [Header("Player")]
@@ -22,10 +19,9 @@ namespace Levels.Generation
 
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
-        private IPathStructuresContaner PathStructuresContaner => (IPathStructuresContaner)_pathStructerContanier;
+        [Inject]
+        private IPathStructuresContaner _pathStructuresContaner;
 
-        private void OnValidate() => 
-            Inspector.ValidateOn<IPathStructuresContaner>(ref _pathStructerContanier);
 
         private void Start() =>
             Build();
@@ -35,7 +31,7 @@ namespace Levels.Generation
 
         public void Build()
         {
-            var structures = PathStructuresContaner.Value;
+            var structures = _pathStructuresContaner.Value;
 
             Path path = structures.CreatPath(_pathRoot, _obstacleCollisionFeedback, _cancellationTokenSource);
 

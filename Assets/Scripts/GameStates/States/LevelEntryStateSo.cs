@@ -14,17 +14,16 @@ namespace GameStates.States
         order = 51)]
     public class LevelEntryStateSo : BaseGameStateSo
     {
-        [SerializeField] private Scene _playerGeneratedPathScene;
         [SerializeField] private UnityObject _levelProvider;
+        [SerializeField] private Scene _playerGeneratedPathScene;
 
         private readonly IAsyncSceneLoading _asyncSceneLoading = new AddressablesSceneLoading();
+
+
         private ILevelProvider LevelProvider => (ILevelProvider)_levelProvider;
 
-        private void OnValidate()
-        {
+        private void OnValidate() => 
             Inspector.ValidateOn<ILevelProvider>(ref _levelProvider);
-        }
-
         public override void Enter()
         {
             _asyncSceneLoading.LoadAsync(LevelProvider.Current.LocationScene);

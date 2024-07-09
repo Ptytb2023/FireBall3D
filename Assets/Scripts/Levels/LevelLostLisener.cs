@@ -9,10 +9,8 @@ namespace Levels
         [SerializeField] private Player _player;
         [SerializeField] private AssetReferenceGameObject _loseScreen;
 
-
         private void OnEnable() =>
             _player.Dead += OnDeadPlayer;
-
 
         private void OnDisable() =>
             _player.Dead -= OnDeadPlayer;

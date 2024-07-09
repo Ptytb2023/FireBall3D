@@ -7,7 +7,7 @@ namespace Levels
     [CreateAssetMenu(fileName = nameof(LevelsStoreSo),
     menuName = nameof(ScriptableObject) + "/" + nameof(Levels) + "/" + nameof(LevelsStoreSo),
     order = 51)]
-    public class LevelsStoreSo : ScriptableObject
+    public class LevelsStoreSo : ScriptableObject, ILevelsStoreSo
     {
         [SerializeField] private Level[] _levels = Array.Empty<Level>();
 
