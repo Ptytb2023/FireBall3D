@@ -15,7 +15,7 @@ namespace DataPersistence.Initialization
         private LevelNumberSo _levelNumberSo;
 
         [Inject]
-        private void Construct(IAsyncFileService fileService, LevelNumberSo levelNumberSo)
+        public void Construct(IAsyncFileService fileService, LevelNumberSo levelNumberSo)
         {
             _levelNumberSo = levelNumberSo;
             _fileService = fileService;
@@ -23,11 +23,13 @@ namespace DataPersistence.Initialization
 
         public override async Task InitializeAsync()
         {
-            LevelNumberSo levelNumber = await _fileService.LoadAsync<LevelNumberSo>(_filePath.Value) ?? EnsureCreated();
+            LevelNumberSo levelNumber = await _fileService.LoadAsync<LevelNumberSo>(_filePath.Value);
+
+            if (levelNumber is null)
+                return;
+
             _levelNumberSo.Value = levelNumber.Value;
         }
-
-        private LevelNumberSo EnsureCreated() =>
-            new LevelNumberSo() { Value = 1 };
+  
     }
 }

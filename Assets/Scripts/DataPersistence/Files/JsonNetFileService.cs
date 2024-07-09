@@ -23,5 +23,15 @@ namespace DataPersistence.Files
 
 			await writer.WriteAsync(json);
 		}
-	}
+
+		public TModel Load<TModel>(string filePath)
+		{
+            using var reader = new StreamReader(filePath);
+
+            string json =  reader.ReadToEnd();
+
+            return JsonConvert.DeserializeObject<TModel>(json);
+        }
+
+    }
 }

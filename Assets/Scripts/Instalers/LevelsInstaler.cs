@@ -20,8 +20,6 @@ namespace Instalers
             Container.BindInterfacesAndSelfTo<PathStructuresContaner>().
                 FromInstance(_pathStructuresContaner).AsSingle().NonLazy();
 
-            Container.Bind<LevelNumberSo>().AsSingle().NonLazy();
-
             Container.BindInterfacesAndSelfTo<CurrentLevelSo>().FromInstance(_currentLevelSo).AsSingle().NonLazy();
 
             Container.Bind<LevelEntryStateSo>().FromInstance(_levelEntryStateSo);

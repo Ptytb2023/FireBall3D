@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5937168158985355342}
   - component: {fileID: 4093927731469116750}
+  - component: {fileID: 7717125462172022658}
   - component: {fileID: 2127949144992252120}
   m_Layer: 0
   m_Name: ProjectContext
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 7717125462172022658}
   - {fileID: 2127949144992252120}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
@@ -62,6 +64,21 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
+--- !u!114 &7717125462172022658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967715930491034344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193c5c5c00cda284c9af2261d156cd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelNumberSo: {fileID: 11400000, guid: 1ceee9f1000d5f843859dda47b89289c, type: 2}
+  _pathToAudio: {fileID: 11400000, guid: 874ffc83fe611eb4897db3f61bd05a42, type: 2}
+  _mixer: {fileID: 24100000, guid: e1aa0bce4c36c1d42b467ea097db5875, type: 2}
 --- !u!114 &2127949144992252120
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,6 +27,8 @@ namespace DataPersistence.Initialization
 
         public override async Task InitializeAsync()
         {
+            _filePath.LoadAsync();
+
             var preferences = await _fileService.LoadAsync<IEnumerable<AudioPreferences>>(_filePath.Value)
                 ?? EnsureCreated();
 

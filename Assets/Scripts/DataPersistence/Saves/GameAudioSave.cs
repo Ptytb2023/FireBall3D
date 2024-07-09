@@ -10,10 +10,20 @@ namespace DataPersistence.Saves.Saves
     {
         [SerializeField] private FilePathSo _filePath;
 
-        private readonly IAsyncFileService _fileService = new JsonNetFileService();
+        private IAsyncFileService _fileService;
+
+        private GameAudio _audio;
 
         [Inject]
-        private GameAudio _audio;
+        public void Construct(IAsyncFileService fileService)
+        {
+            _fileService = fileService;
+        }
+
+        public void Initioalize(GameAudio gameAudio)
+        {
+            _audio = gameAudio;
+        }
 
         private void OnApplicationQuit()
         {
