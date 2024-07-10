@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using IoC;
+using UnityEngine;
 using Zenject;
 
 namespace Levels
@@ -9,7 +10,9 @@ namespace Levels
     public class CurrentLevelSo : ScriptableObject, ILevelNumberProvider, ILevelProvider, ILevelChanging
     {
         [SerializeField] private LevelsStoreSo _strorage;
-        [SerializeField] private LevelNumberSo _levelNumber;
+
+        private  ILevelNumber _levelNumber => Container.InstanceOf<ILevelNumber>();
+
 
         public Level Current => _strorage.Levles[_levelNumber.Value - 1];
 

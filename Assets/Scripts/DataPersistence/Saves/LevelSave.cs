@@ -2,6 +2,7 @@
 using Levels;
 using UnityEngine;
 using Zenject;
+using IoC;
 
 namespace DataPersistence.Saves.Saves
 {
@@ -11,19 +12,19 @@ namespace DataPersistence.Saves.Saves
 
         private IAsyncFileService _fileService;
 
-        
-        private LevelNumberSo _levelNumberSo;
+
 
         [Inject]
-        public void Construct(IAsyncFileService asyncFileService, LevelNumberSo levelNumberSo)
+        public void Construct(IAsyncFileService asyncFileService)
         {
-            _levelNumberSo = levelNumberSo;
             _fileService = asyncFileService;
         }
 
         private void OnApplicationQuit()
         {
-            _fileService.SaveAsync(_levelNumberSo, _filePath.Value);
+            var levelNumber = Container.InstanceOf<ILevelNumber>();
+
+            _fileService.SaveAsync(levelNumber, _filePath.Value);
         }
     }
 }

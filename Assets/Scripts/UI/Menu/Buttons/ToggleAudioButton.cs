@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Audio;
 using Extensions;
+using IoC;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace UI.Buttons
 {
@@ -27,15 +27,10 @@ namespace UI.Buttons
 
         private Image _image;
 
-        private IAudioOperations _audioOperations;
-        private IAudioStatusProvider _statusProvider;
+        private IAudioOperations _audioOperations => Container.InstanceOf<IAudioOperations>();
+        private IAudioStatusProvider _statusProvider => Container.InstanceOf<IAudioStatusProvider>();
 
-        [Inject]
-        private void Construct(IAudioOperations audioOperations, IAudioStatusProvider statusProvider)
-        {
-            _audioOperations = audioOperations;
-            _statusProvider = statusProvider;
-        }
+
 
         private void Awake()
         {

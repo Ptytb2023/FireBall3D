@@ -1,3 +1,4 @@
+using DataPersistence.Files;
 using GameStates.States;
 using Levels;
 using Levels.Generation;
@@ -15,6 +16,9 @@ namespace Instalers
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<JsonNetFileService>().AsSingle().NonLazy();
+
+
             Container.BindInterfacesAndSelfTo<LevelsStoreSo>().FromInstance(_levelsStoreSo).AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<PathStructuresContaner>().

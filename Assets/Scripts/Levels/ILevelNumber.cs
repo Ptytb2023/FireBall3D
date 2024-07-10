@@ -1,6 +1,6 @@
 ﻿namespace Levels
 {
-    public interface ILevelNumberSo
+    public interface ILevelNumber
     {
         int Value { get; set; }
     }

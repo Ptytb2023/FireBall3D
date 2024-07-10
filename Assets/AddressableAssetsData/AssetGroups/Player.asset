@@ -42,6 +42,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 874ffc83fe611eb4897db3f61bd05a42
+    m_Address: Assets/ScriptebleObjects/FilePaths/GameAudioPath.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 485b32ae6d970e245a45bf6afe114758
+    m_Address: Assets/ScriptebleObjects/FilePaths/lelvelNumberPath.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4a1fe471097880941af8046be3e5192b, type: 2}
   m_SchemaSet:
