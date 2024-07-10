@@ -22,6 +22,7 @@ namespace Animation
                 SetLoops(-1, LoopType.Yoyo);
         }
 
+
         #region Old
         //[SerializeField] private Ease _ease;
         //[SerializeField] private Vector3 _toScale;

@@ -32,8 +32,7 @@ namespace GameStates.States
 
         public override void Exit()
         {
-            _asyncSceneLoading.UnLoadAsync(LevelProvider.Current.LocationScene);
-            _asyncSceneLoading.UnLoadAsync(_playerGeneratedPathScene);
+            
         }
     }
 }

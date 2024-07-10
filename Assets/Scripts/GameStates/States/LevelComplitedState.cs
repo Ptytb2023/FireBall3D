@@ -32,7 +32,6 @@ namespace Assets.Scripts.GameStates.States
 
         public override async void Exit()
         {
-            await _sceneLoading.UnLoadAsync(_menu);
         }
     }
 }

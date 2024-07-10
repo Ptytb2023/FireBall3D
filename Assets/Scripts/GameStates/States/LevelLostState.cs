@@ -13,10 +13,9 @@ namespace GameStates.States
 
         private readonly IAsyncSceneLoading _sceneLoading = new AddressablesSceneLoading();
 
-        public override void Enter() => 
+        public override void Enter() =>
             _sceneLoading.LoadAsync(_menu);
 
-        public override void Exit() => 
-            _sceneLoading.UnLoadAsync(_menu);
+        public override void Exit() { } 
     }
 }

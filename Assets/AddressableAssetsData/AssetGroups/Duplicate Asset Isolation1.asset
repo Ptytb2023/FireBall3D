@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 8a718a70e8676194886a792430e37692
-  m_SerializeEntries:
-  - m_GUID: ee4de4080daca8e4a994cef9d222944c
-    m_Address: Assets/ScriptebleObjects/Levels/PathStructuresContaner.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4a1fe471097880941af8046be3e5192b, type: 2}
   m_SchemaSet:

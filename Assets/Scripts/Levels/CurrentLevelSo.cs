@@ -1,6 +1,6 @@
 ﻿using IoC;
+using Levels.Generation;
 using UnityEngine;
-using Zenject;
 
 namespace Levels
 {
@@ -11,12 +11,20 @@ namespace Levels
     {
         [SerializeField] private LevelsStoreSo _strorage;
 
-        private  ILevelNumber _levelNumber => Container.InstanceOf<ILevelNumber>();
+        private PathStructuresContaner _strorageContaner=> Container.InstanceOf<PathStructuresContaner>();
 
+        public void Init()
+        {
+            _strorageContaner.Value = Current.PathStructuresSo;
+        }
+
+
+        private ILevelNumber _levelNumber => Container.InstanceOf<ILevelNumber>();
 
         public Level Current => _strorage.Levles[_levelNumber.Value - 1];
 
         public int Value => _levelNumber.Value;
+
 
         public void StepToNextLevel()
         {
@@ -24,6 +32,7 @@ namespace Levels
             int max = _strorage.Levles.Count;
 
             _levelNumber.Value = Mathf.Clamp(_levelNumber.Value + 1, min, max);
+            _strorageContaner.Value = Current.PathStructuresSo;
         }
     }
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340194ad5484408ba2b9eb24424e36dd, type: 3}
   m_Name: lelvelNumberPath
   m_EditorClassIdentifier: 
-  _fileName: levelNu1mber.json
+  _fileName: LevelNuber.json

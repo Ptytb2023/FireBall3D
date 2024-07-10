@@ -4,6 +4,7 @@ using Players;
 using UnityEngine;
 using System.Threading;
 using Zenject;
+using IoC;
 
 namespace Levels.Generation
 {
@@ -19,8 +20,10 @@ namespace Levels.Generation
 
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
-        [Inject]
-        private IPathStructuresContaner _pathStructuresContaner;
+
+        private IPathStructuresContaner _pathStructuresContaner =>
+            Container.InstanceOf<IPathStructuresContaner>();
+
 
 
         private void Start() =>

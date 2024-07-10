@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using UnityEngine;
 using UnityEngine.Android;
 
 namespace DataPersistence.Files
@@ -12,18 +11,6 @@ namespace DataPersistence.Files
         {
             PermissionReques();
 
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"File.Exists(filePath):{File.Exists(filePath)}");
-
-            if (File.Exists(filePath) == false)
-            {
-                await using FileStream fileStream = File.Create(filePath);
-            }
             using var reader = new StreamReader(filePath);
 
             string json = await reader.ReadToEndAsync();
@@ -34,20 +21,6 @@ namespace DataPersistence.Files
         public async Task SaveAsync<TModel>(TModel model, string filePath)
         {
             PermissionReques();
-
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-            Debug.Log($"Saave  File.Exists(filePath):{File.Exists(filePath)}");
-
-
-            if (File.Exists(filePath) == false)
-            {
-                await using FileStream fileStream = File.Create(filePath);
-            }
 
             using var writer = new StreamWriter(filePath);
 
@@ -62,7 +35,7 @@ namespace DataPersistence.Files
 
             if (File.Exists(filePath))
             {
-                File.Create(filePath);
+                FileStream fileStream = File.Create(filePath);
             }
 
             var reader = new StreamReader(filePath);

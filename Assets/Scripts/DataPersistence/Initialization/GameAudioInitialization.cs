@@ -26,15 +26,6 @@ namespace DataPersistence.Initialization
 
         public override async Task InitializeAsync()
         {
-            Debug.Log(_filePath.Value);
-            Debug.Log(_filePath.Value);
-            Debug.Log(_filePath.Value);
-            Debug.Log(_filePath.Value);
-            Debug.Log(_filePath.Value);
-            Debug.Log(_filePath.Value);
-            Debug.Log(_filePath.Value);
-            await  _filePath.LoadAsync();
-
             var preferences = await _fileService.LoadAsync<IEnumerable<AudioPreferences>>(_filePath.Value)
                 ?? EnsureCreated();
 
