@@ -1,7 +1,7 @@
-﻿using Pathes.Complition;
+﻿using Paths.Completion;
 using GameStates.Base;
 using Inputs;
-using Pathes;
+using Paths;
 using System.Threading;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace Players
         public void StartMovingOn(Path path, Vector3 initialPosition, CancellationTokenSource cancellationTokenSource)
         {
             _player.position = initialPosition;
-            IPathComlition levelPathComplition = new LevelPathComplition(_gameStateMachine);
+            IPathCompletion levelPathComplition = new LevelPathCompletion(_gameStateMachine);
             PathFolowing pathFolowing = new PathFolowing(path, _movebelPreferenceSo, _player);
 
             PlayerPathFollowing playerFollosing = new(pathFolowing, path, _playerInputHandler, levelPathComplition);

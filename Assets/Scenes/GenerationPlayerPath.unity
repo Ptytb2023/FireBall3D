@@ -303,15 +303,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 596907260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89ef9a6a223028f4d8ba11f2f5808529, type: 3}
+  m_Script: {fileID: 11500000, guid: 79aa81d5086441cda12a3525f6d9b010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathRoot: {fileID: 596907261}
-  _playerMovemet: {fileID: 2075854483574684204}
+  _pathRoot: {fileID: 199916909}
+  _playerMovement: {fileID: 2075854483574684204}
   _obstacleCollisionFeedback:
     <Player>k__BackingField: {fileID: 56015381}
     <PlayerInput>k__BackingField: {fileID: 769084464}
     <PlayerProjectilePool>k__BackingField: {fileID: 220384886}
+  _pathStructureContainerSo: {fileID: 11400000, guid: 60d91cdf39f0aa84980f6d4e1e549162,
+    type: 2}
+  _currentLevelSo: {fileID: 11400000, guid: 4030a189e6857834892c5b16d33c6387, type: 2}
 --- !u!1 &744223136
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +356,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 744223136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04b578856110d864c960826efd333ef1, type: 3}
+  m_Script: {fileID: 11500000, guid: 86a2722e658e4b6c909fc2928332f17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2075854483574684205}
@@ -361,7 +364,7 @@ MonoBehaviour:
     m_AssetGUID: bc2938418ec8b80418b3c3c9104be921
     m_SubObjectName: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
 --- !u!114 &769084464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2026029771046917004, guid: 94e63274a3638754c888a3cb9d61f08d,

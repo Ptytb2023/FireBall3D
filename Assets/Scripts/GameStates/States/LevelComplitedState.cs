@@ -1,5 +1,6 @@
 ﻿using GameStates.Base;
 using Levels;
+using Levels.Interfaces;
 using SceneLoading;
 using System.Threading.Tasks;
 using Tools;

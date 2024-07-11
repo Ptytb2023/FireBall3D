@@ -3,35 +3,32 @@ using System.Runtime.CompilerServices;
 
 namespace Towers.Disassembling
 {
-    public struct TowerDisassemblingAwaiter : INotifyCompletion
-    {
+	public struct TowerDisassemblingAwaiter : INotifyCompletion
+	{
+		private readonly TowerDisassembling _disassembling;
+		private Action _continuation;
 
-        private readonly TowerDisassembling _towerDisassembling;
-        private Action _cotinauation;
+		public TowerDisassemblingAwaiter(TowerDisassembling disassembling)
+		{
+			_disassembling = disassembling;
+			_continuation = null;
+			IsCompleted = false;
+		}
+		
+		public bool IsCompleted { get; private set; }
 
-        public TowerDisassemblingAwaiter(TowerDisassembling towerDisassembling)
-        {
-            _towerDisassembling = towerDisassembling;
-            _cotinauation = null;
-            IsCompleted = false;
-        }
+		public string GetResult() => string.Empty;
 
-        public bool IsCompleted { get; private set; }
+		public void OnCompleted(Action continuation)
+		{
+			_continuation = continuation;
+			_disassembling.Disassembled += OnTowerDisassembled;
+		}
 
-        public string GetResult() => string.Empty;
-
-        public void OnCompleted(Action continuation)
-        {
-            _cotinauation = continuation;
-            _towerDisassembling.Disassembling += OnTowerDisassembled;
-        }
-
-        private void OnTowerDisassembled()
-        {
-            _towerDisassembling.Disassembling -= OnTowerDisassembled;
-
-            _cotinauation.Invoke();
-            IsCompleted = true;
-        }
-    }
+		private void OnTowerDisassembled()
+		{
+			_continuation.Invoke();
+			IsCompleted = true;
+		}
+	}
 }

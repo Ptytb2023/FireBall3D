@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3599998505977131362}
-  - component: {fileID: 5290804478011028899}
+  - component: {fileID: 2495590068976941014}
   m_Layer: 0
   m_Name: PathPlatfromBuilder
   m_TagString: Untagged
@@ -220,7 +220,7 @@ Transform:
   - {fileID: 3423628726311767633}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5290804478011028899
+--- !u!114 &2495590068976941014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,11 +229,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412798602055875714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430221e3d1854ea4398abb9ed7e47dcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 746c70cd73044d0c8814a7cbaede8d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacleBilder: {fileID: 2791424904928837988}
-  _toweBuilder: {fileID: 2099148707404909621}
+  _towerBuilder: {fileID: 5702452913684317995}
+  _obstaclesBuilder: {fileID: 4755588304191966102}
 --- !u!1 &2994385824908220136
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062023226972371306}
   - component: {fileID: 273104703585557588}
-  - component: {fileID: 4737954819731633137}
+  - component: {fileID: 9111994554487141530}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -394,7 +394,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4737954819731633137
+--- !u!114 &9111994554487141530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,13 +403,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3210002354829494751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b866d6f5f7e11ba4d947991e437d9e57, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a5a6266ef5a4f91a1dd3fc0c36bca9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _segmentRemoveSound: {fileID: 8300000, guid: b7b508003d4ca62499f3e2d3cd30bdbd, type: 3}
-  _startPitch: 1
-  _maxPitch: 3
-  _pitchIncriaseStep: 0.05
+  _segmentRemovedSound: {fileID: 8300000, guid: 535c4244dcfd4f6499783ab56221cdeb,
+    type: 3}
+  _startPitch: 0.2
+  _maxPitch: 1
+  _pitchIncreaseStep: 0.3
 --- !u!1 &5644280615638617260
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3423628726311767633}
-  - component: {fileID: 2791424904928837988}
+  - component: {fileID: 4755588304191966102}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -474,7 +475,7 @@ Transform:
   - {fileID: 8489708691843560552}
   m_Father: {fileID: 3599998505977131362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2791424904928837988
+--- !u!114 &4755588304191966102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,11 +484,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6546368298994112959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b17aa4cacf3fc174a8d6b6abe56b1ec4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b4d39cb99a94bbd8fbfadfbe5cb0808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _root: {fileID: 8489708691843560552}
-  _moveTween: {fileID: 11400000, guid: ce991a822c3c7ce4dbb61eae41ed5798, type: 2}
+  _disappearAnimation: {fileID: 11400000, guid: ce991a822c3c7ce4dbb61eae41ed5798,
+    type: 2}
 --- !u!1 &6646989787175648254
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7104828634331260006}
-  - component: {fileID: 2099148707404909621}
+  - component: {fileID: 5702452913684317995}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -524,7 +526,7 @@ Transform:
   - {fileID: 1062023226972371306}
   m_Father: {fileID: 3599998505977131362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2099148707404909621
+--- !u!114 &5702452913684317995
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,14 +535,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6646989787175648254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6d1ec6deb14449b154779dbd04b3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4378d4e1695a407ebb035f54f423cd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _towerRoot: {fileID: 8051166901376779521}
-  _audio: {fileID: 4737954819731633137}
   _spawnAnimation: {fileID: 11400000, guid: 2b2b352d3a9217b42b118adc56cadfc5, type: 2}
-  _segmentsCountLeft: {fileID: 6503190761263075073}
-  _projectileHitTriger: {fileID: 7382727594558255574}
+  _projectileHitTrigger: {fileID: 7382727594558255574}
+  _segmentsLeftText: {fileID: 6503190761263075073}
+  _audio: {fileID: 9111994554487141530}
 --- !u!1 &7636590766350483116
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,3 +609,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ee9aac5e727de4e9489189b87ae2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pool: {fileID: 0}

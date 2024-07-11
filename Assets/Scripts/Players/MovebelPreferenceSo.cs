@@ -3,7 +3,7 @@
 namespace Players
 {
     [CreateAssetMenu(fileName = nameof(MovebelPreferenceSo),
-        menuName = nameof(ScriptableObject) + "/" + nameof(Pathes) + "/" + nameof(MovebelPreferenceSo),
+        menuName = nameof(ScriptableObject) + "/" + nameof(Paths) + "/" + nameof(MovebelPreferenceSo),
         order = 51)]
     public class MovebelPreferenceSo : ScriptableObject
     {

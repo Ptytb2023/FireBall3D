@@ -1,38 +1,21 @@
 ﻿using IoC;
-using Levels.Generation;
+using Levels.Interfaces;
 using UnityEngine;
 
 namespace Levels
 {
-    [CreateAssetMenu(fileName = nameof(CurrentLevelSo),
-      menuName = nameof(ScriptableObject) + "/" + nameof(Levels) + "/" + nameof(CurrentLevelSo),
-      order = 51)]
-    public class CurrentLevelSo : ScriptableObject, ILevelNumberProvider, ILevelProvider, ILevelChanging
-    {
-        [SerializeField] private LevelsStoreSo _strorage;
+	[CreateAssetMenu(fileName = "CurrentLevel", menuName = "ScriptableObjects/Levels/CurrentLevel")]
+	public class CurrentLevelSo : ScriptableObject, ILevelNumberProvider, ILevelProvider, ILevelChanging
+	{
+		[SerializeField] private LevelStorageSo _storage;
+		
+		private LevelNumber LevelNumber => Container.InstanceOf<LevelNumber>();
 
-        private PathStructuresContaner _strorageContaner=> Container.InstanceOf<PathStructuresContaner>();
+		public int Value => LevelNumber.Value;
 
-        public void Init()
-        {
-            _strorageContaner.Value = Current.PathStructuresSo;
-        }
-
-
-        private ILevelNumber _levelNumber => Container.InstanceOf<ILevelNumber>();
-
-        public Level Current => _strorage.Levles[_levelNumber.Value - 1];
-
-        public int Value => _levelNumber.Value;
-
-
-        public void StepToNextLevel()
-        {
-            int min = 1;
-            int max = _strorage.Levles.Count;
-
-            _levelNumber.Value = Mathf.Clamp(_levelNumber.Value + 1, min, max);
-            _strorageContaner.Value = Current.PathStructuresSo;
-        }
-    }
+		public Level Current => _storage.Levels[LevelNumber.Value - 1];
+		
+		public void StepToNextLevel() => 
+			LevelNumber.Value = Mathf.Clamp(LevelNumber.Value + 1, 1, _storage.Levels.Count);
+	}
 }

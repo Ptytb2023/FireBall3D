@@ -1,11 +1,9 @@
-﻿
+﻿using Levels.Interfaces;
+
 namespace Levels
 {
-    public class LevelNumber : ILevelNumber
+	public class LevelNumber 
     {
-        public int Value { get; set; }
-
-        public LevelNumber() =>
-         Value = 1;
-    }
+		public int Value { get; set; } = 1;
+	}
 }

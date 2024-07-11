@@ -16,8 +16,6 @@ namespace DataPersistence.Initialization
 
         private IAsyncFileService _fileService;
 
-
-
         [Inject]
         public void Construct(IAsyncFileService fileService)
         {
@@ -29,14 +27,9 @@ namespace DataPersistence.Initialization
 
             LevelNumber levelNumber = await _fileService.LoadAsync<LevelNumber>(_filePath.Value) ??
                 new LevelNumber();
-            Container.Register<ILevelNumber>(levelNumber);
+            Container.Register(levelNumber);
 
-            PathStructuresContaner pathStructures = new PathStructuresContaner();
-            Container.Register(pathStructures);
-
-            Container.Register<IPathStructuresContaner>(pathStructures);
-            currentLevelSo.Init();
-
+           
         }
 
 

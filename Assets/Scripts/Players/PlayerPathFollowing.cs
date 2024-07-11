@@ -1,7 +1,7 @@
 ﻿using Inputs;
 using Obstacles.Disappearing;
-using Pathes;
-using Pathes.Complition;
+using Paths;
+using Paths.Completion;
 using System.Collections.Generic;
 using System.Threading;
 using Towers.Disassembling;
@@ -13,13 +13,13 @@ namespace Players
         private readonly PathFolowing _pathFolowing;
         private readonly Path _path;
         private readonly PlayerInputHandler _playerInputHandler;
-        private readonly IPathComlition _pathComlition;
+        private readonly IPathCompletion _pathComlition;
         private PathFolowing pathFolowing;
         private Path path;
         private PlayerInputHandler playerInputHandler;
 
         public PlayerPathFollowing(PathFolowing pathFolowing, Path path,
-            PlayerInputHandler playerInputHandler, IPathComlition pathComlition)
+            PlayerInputHandler playerInputHandler, IPathCompletion pathComlition)
         {
             _pathComlition = pathComlition;
             _pathFolowing = pathFolowing;
@@ -29,16 +29,16 @@ namespace Players
 
         public async void StartMovingAsync(CancellationToken cancellationToken)
         {
-            IReadOnlyList<SegmentPath> segments = _path.Segments;
+            IReadOnlyList<PathSegment> segments = _path.Segments;
 
-            foreach (SegmentPath pathSegment in segments)
+            foreach (PathSegment pathSegment in segments)
             {
                 _playerInputHandler.Disable();
 
                 await _pathFolowing.MoveToNextAsync();
 
-                (TowerDisassembling towerDisassembling, ObstacleDisappering obstacleDisappering)
-                      = await pathSegment.PathPlatformBuilder.BuildAsync();
+                (TowerDisassembling towerDisassembling, ObstaclesDisappearing obstacleDisappering)
+                      = await pathSegment.PlatformBuilder.BuildAsync();
 
                 if (cancellationToken.IsCancellationRequested)
                     return;
@@ -48,7 +48,7 @@ namespace Players
                 await towerDisassembling;
                 await obstacleDisappering.ApllyAsync();
             }
-            _pathComlition.Complited();
+            _pathComlition.Complete();
         }
     }
 }

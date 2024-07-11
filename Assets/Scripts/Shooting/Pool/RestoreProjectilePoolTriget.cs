@@ -8,10 +8,10 @@ namespace Shooting.Pool
     {
         [SerializeField] private ProjectilePool _pool;
 
-        public event Action ProjectileReturn;
+        public event Action ProjectileReturned;
 
 
-        public void Initialisation(ProjectilePool pool) =>
+        public void Initialize(ProjectilePool pool) =>
             _pool = pool;
 
         private void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ namespace Shooting.Pool
             if (other.TryGetComponent(out Projectile projectile))
             {
                 _pool.Return(projectile);
-                ProjectileReturn?.Invoke();
+                ProjectileReturned?.Invoke();
             }
         }
 

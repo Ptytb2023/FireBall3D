@@ -22,7 +22,7 @@ namespace DataPersistence.Saves.Saves
 
         private void OnApplicationQuit()
         {
-            var levelNumber = Container.InstanceOf<ILevelNumber>();
+            var levelNumber = Container.InstanceOf<LevelNumber>();
 
             _fileService.SaveAsync(levelNumber, _filePath.Value);
         }

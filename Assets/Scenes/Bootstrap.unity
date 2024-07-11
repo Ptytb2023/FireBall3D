@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf576393aece489d8e614dfac6eb73c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelSo: {fileID: 11400000, guid: 872617352ea2a4f4d8b4c53d0979dab1, type: 2}
+  currentLevelSo: {fileID: 11400000, guid: 4030a189e6857834892c5b16d33c6387, type: 2}
   _filePath: {fileID: 11400000, guid: 485b32ae6d970e245a45bf6afe114758, type: 2}
 --- !u!114 &1393491874
 MonoBehaviour:
