@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _segmentPrefab: {fileID: 5403415460197582308, guid: 101b694a6aede6344bbe1ab9caf05723,
     type: 3}
-  _segmentCount: 20
+  _segmentCount: 15
   _spawnTimePerSegment: 0.05
   _materials:
   - {fileID: 2100000, guid: 165b6bf687f1de14bb5bc607522f7e0c, type: 2}

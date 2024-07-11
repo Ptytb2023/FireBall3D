@@ -17,5 +17,5 @@ MonoBehaviour:
   _segmentCount: 20
   _spawnTimePerSegment: 0.05
   _materials:
-  - {fileID: 2100000, guid: 165b6bf687f1de14bb5bc607522f7e0c, type: 2}
-  - {fileID: 2100000, guid: 0e29eec5587511b4aa8b365561750ad4, type: 2}
+  - {fileID: 2100000, guid: ce106afcd00ed8b4486510d7fa969909, type: 2}
+  - {fileID: 2100000, guid: 3d2b657372818624fad8d9b8ab5d9734, type: 2}

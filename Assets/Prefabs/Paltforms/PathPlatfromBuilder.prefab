@@ -406,11 +406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5a6266ef5a4f91a1dd3fc0c36bca9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _segmentRemovedSound: {fileID: 8300000, guid: 535c4244dcfd4f6499783ab56221cdeb,
+  _segmentRemovedSound: {fileID: 8300000, guid: b7b508003d4ca62499f3e2d3cd30bdbd,
     type: 3}
-  _startPitch: 0.2
-  _maxPitch: 1
-  _pitchIncreaseStep: 0.3
+  _startPitch: 1
+  _maxPitch: 3
+  _pitchIncreaseStep: 0.05
 --- !u!1 &5644280615638617260
 GameObject:
   m_ObjectHideFlags: 0
