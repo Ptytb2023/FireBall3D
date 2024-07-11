@@ -2,7 +2,6 @@
 using Shooting;
 using Inputs;
 using Characters;
-using Pathes;
 using Shooting.Pool;
 using System;
 
@@ -29,7 +28,7 @@ namespace Players
 
         public event Action Dead;
 
-        private void Start()
+        private void Awake()
         {
             Character character = _caharcerContainer.Creat(transform);
 

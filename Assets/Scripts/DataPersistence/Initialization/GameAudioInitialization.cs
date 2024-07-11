@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Audio;
 using DataPersistence.Files;
 using DataPersistence.Saves;
+using IoC;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
@@ -16,19 +17,15 @@ namespace DataPersistence.Initialization
 
         private IAsyncFileService _fileService;
 
-        private DiContainer _container;
 
         [Inject]
-        private void Construct(IAsyncFileService fileService, DiContainer container)
+        private void Construct(IAsyncFileService fileService)
         {
-            _container = container;
             _fileService = fileService;
         }
 
         public override async Task InitializeAsync()
         {
-            _filePath.LoadAsync();
-
             var preferences = await _fileService.LoadAsync<IEnumerable<AudioPreferences>>(_filePath.Value)
                 ?? EnsureCreated();
 
@@ -36,8 +33,10 @@ namespace DataPersistence.Initialization
 
             GameAudio gameAudio = new GameAudio(mixer, preferences);
             gameAudio.Initialize();
-
-            _container.BindInterfacesAndSelfTo<GameAudio>().FromInstance(gameAudio);
+            Container.Register(gameAudio);
+            Container.Register<IAudioOperations>(gameAudio);
+            Container.Register<IAudioPreferencesProvider>(gameAudio);
+            Container.Register<IAudioStatusProvider>(gameAudio);
         }
 
         private IEnumerable<AudioPreferences> EnsureCreated() => new[]

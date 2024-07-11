@@ -5,6 +5,6 @@ namespace DataPersistence
     public static class Keys
     {
         public const string GameAudio = nameof(GameAudio);
-        public const string LevelNumber = nameof(LevelNumberSo);
+        public const string LevelNumber = nameof(Levels.LevelNumber);
     }
 }

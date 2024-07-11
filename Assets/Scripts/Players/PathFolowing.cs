@@ -1,5 +1,5 @@
 ﻿using DG.Tweening;
-using Pathes;
+using Paths;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace Players
             if (_currentIndexPath > _path.Segments.Count)
                 _currentIndexPath = 0;
 
-            SegmentPath segmentPath = _path.Segments[_currentIndexPath];
+            PathSegment segmentPath = _path.Segments[_currentIndexPath];
 
             await MoveToPoitns(_follower, segmentPath.Waypoints);
             _currentIndexPath++;

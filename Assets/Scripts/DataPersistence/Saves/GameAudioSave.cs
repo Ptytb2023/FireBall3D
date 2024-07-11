@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Audio;
 using DataPersistence.Files;
+using IoC;
 using UnityEngine;
 using Zenject;
 
@@ -12,7 +13,6 @@ namespace DataPersistence.Saves.Saves
 
         private IAsyncFileService _fileService;
 
-        private GameAudio _audio;
 
         [Inject]
         public void Construct(IAsyncFileService fileService)
@@ -20,14 +20,10 @@ namespace DataPersistence.Saves.Saves
             _fileService = fileService;
         }
 
-        public void Initioalize(GameAudio gameAudio)
-        {
-            _audio = gameAudio;
-        }
 
         private void OnApplicationQuit()
         {
-            IEnumerable<AudioPreferences> audioPreferences = _audio.Preferences;
+            var audioPreferences = Container.InstanceOf<IAudioPreferencesProvider>().Preferences;
             _fileService.SaveAsync(audioPreferences, _filePath.Value);
         }
     }

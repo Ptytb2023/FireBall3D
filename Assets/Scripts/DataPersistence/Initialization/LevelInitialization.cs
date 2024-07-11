@@ -4,32 +4,34 @@ using DataPersistence.Saves;
 using Levels;
 using UnityEngine;
 using Zenject;
+using IoC;
+using Levels.Generation;
 
 namespace DataPersistence.Initialization
 {
     public class LevelInitialization : AsyncInitialization
     {
+        [SerializeField] private CurrentLevelSo currentLevelSo;
         [SerializeField] private FilePathSo _filePath;
 
         private IAsyncFileService _fileService;
-        private LevelNumberSo _levelNumberSo;
 
         [Inject]
-        public void Construct(IAsyncFileService fileService, LevelNumberSo levelNumberSo)
+        public void Construct(IAsyncFileService fileService)
         {
-            _levelNumberSo = levelNumberSo;
             _fileService = fileService;
         }
 
         public override async Task InitializeAsync()
         {
-            LevelNumberSo levelNumber = await _fileService.LoadAsync<LevelNumberSo>(_filePath.Value);
 
-            if (levelNumber is null)
-                return;
+            LevelNumber levelNumber = await _fileService.LoadAsync<LevelNumber>(_filePath.Value) ??
+                new LevelNumber();
+            Container.Register(levelNumber);
 
-            _levelNumberSo.Value = levelNumber.Value;
+           
         }
-  
+
+
     }
 }

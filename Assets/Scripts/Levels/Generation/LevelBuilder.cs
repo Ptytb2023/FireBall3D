@@ -1,8 +1,9 @@
-﻿using Obstacles;
-using Pathes;
+﻿using System.Threading;
+using IoC;
+using Obstacles;
+using Paths;
 using Players;
 using UnityEngine;
-using System.Threading;
 using Zenject;
 
 namespace Levels.Generation
@@ -12,16 +13,13 @@ namespace Levels.Generation
         [Header("Path")]
         [SerializeField] private Transform _pathRoot;
 
-
         [Header("Player")]
-        [SerializeField] private PlayerMovement _playerMovemet;
+        [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private ObstacleCollisionFeedback _obstacleCollisionFeedback;
 
+        [SerializeField] private CurrentLevelSo _currentLevelSo;
+
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-
-        [Inject]
-        private IPathStructuresContaner _pathStructuresContaner;
-
 
         private void Start() =>
             Build();
@@ -29,17 +27,14 @@ namespace Levels.Generation
         private void OnDisable() =>
             _cancellationTokenSource.Cancel();
 
-        public void Build()
+        private void Build()
         {
-            var structures = _pathStructuresContaner.Value;
+            Path path = _currentLevelSo.Current.PathStructure
+                .CreatePath(_pathRoot, _obstacleCollisionFeedback, _cancellationTokenSource);
 
-            Path path = structures.CreatPath(_pathRoot, _obstacleCollisionFeedback, _cancellationTokenSource);
+            Vector3 initialPosition = path.Segments[0].Waypoints[0].position;
 
-            Vector3 initialPostion = path.Segments[0].Waypoints[0].position;
-
-            _playerMovemet.StartMovingOn(path, initialPostion, _cancellationTokenSource);
+            _playerMovement.StartMovingOn(path, initialPosition, _cancellationTokenSource);
         }
-
-
     }
 }

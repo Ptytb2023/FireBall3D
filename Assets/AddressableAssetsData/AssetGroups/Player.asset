@@ -37,8 +37,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ff2230e69543254b91a65f796e98ca6
-    m_Address: GenerationPlayerPath
+  - m_GUID: 874ffc83fe611eb4897db3f61bd05a42
+    m_Address: GameAudioPath
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 485b32ae6d970e245a45bf6afe114758
+    m_Address: Assets/ScriptebleObjects/FilePaths/lelvelNumberPath.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

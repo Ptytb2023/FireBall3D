@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340194ad5484408ba2b9eb24424e36dd, type: 3}
   m_Name: GameAudioPath
   m_EditorClassIdentifier: 
-  _fileName: Audio.JSON
+  _fileName: GameAudio.json

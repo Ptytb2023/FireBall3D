@@ -1,50 +1,39 @@
 ﻿using System;
 using UnityEngine;
-
-
 using UnityObject = UnityEngine.Object;
 
 namespace Towers.Disassembling
 {
-    public class TowerDisassembling
-    {
-        private Transform _rootTower;
-        private readonly Tower _tower;
-        private float _stepOfSquntialRotationY;
+	public class TowerDisassembling
+	{
+		private readonly Tower _tower;
+		private readonly Transform _towerRoot;
 
-        public event Action Disassembling;
+		public TowerDisassembling(Tower tower, Transform towerRoot)
+		{
+			_tower = tower;
+			_towerRoot = towerRoot;
+		}
 
-        public TowerDisassembling(Transform rootTower, Tower tower, float stepOfSquntialRotationY)
-        {
-            _rootTower = rootTower;
-            _tower = tower;
-            _stepOfSquntialRotationY = stepOfSquntialRotationY;
-        }
+		public event Action Disassembled;
 
-        public void TryRemoveBotton()
-        {
-            if (_tower.CountSegments.Value == 0)
-                return;
+		public void TryRemoveBottom()
+		{
+			if (_tower.SegmentCount.Value == 0)
+				return;
 
-            SegmentPlatform towerSegment = _tower.GetTowerSegment();
+			TowerSegment segment = _tower.RemoveBottom();
+			Vector3 segmentScale = segment.transform.localScale;
 
-            float scaleY = towerSegment.transform.localScale.y;
-            _rootTower.position -= Vector3.up * scaleY;
-            _rootTower.rotation = Quaternion.Euler(Vector3.up * _stepOfSquntialRotationY);
+			_towerRoot.position -= Vector3.up * segmentScale.y;
+			
+			UnityObject.Destroy(segment.gameObject);
+			
+			if (_tower.SegmentCount.Value == 0)
+				Disassembled?.Invoke();
+		}
 
-            UnityObject.Destroy(towerSegment.gameObject);
-
-            if (_tower.CountSegments.Value == 0)
-                Disassembling?.Invoke();
-        }
-
-        private void OnOverSegments(int value) =>
-            Disassembling?.Invoke();
-
-
-        public TowerDisassemblingAwaiter GetAwaiter()
-        {
-            return new TowerDisassemblingAwaiter(this);
-        }
-    }
+		public TowerDisassemblingAwaiter GetAwaiter() => 
+			new TowerDisassemblingAwaiter(this);
+	}
 }

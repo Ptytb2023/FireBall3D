@@ -40,7 +40,7 @@ AudioMixerController:
   - guid: dea91659daebdcd4da8087c6cc288263
     name: MyExposedParam 1
   - guid: 9a4ab924d4b4ef54cb4f209cee732f58
-    name: SfcSoundVolume
+    name: SfxVolume
   m_AudioMixerGroupViews:
   - guids:
     - c03d1cb357bf08d4daa842884ecc4a56

@@ -1,9 +1,10 @@
 ﻿using GameStates.Base;
 using Levels;
+using Levels.Interfaces;
 using SceneLoading;
+using System.Threading.Tasks;
 using Tools;
 using UnityEngine;
-using Zenject;
 using UnityObject = UnityEngine.Object;
 
 
@@ -32,7 +33,7 @@ namespace Assets.Scripts.GameStates.States
 
         public override async void Exit()
         {
-            await _sceneLoading.UnLoadAsync(_menu);
+            await Task.Delay(0);
         }
     }
 }
