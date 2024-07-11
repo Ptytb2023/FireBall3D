@@ -1,9 +1,9 @@
 ﻿using GameStates.Base;
 using Levels;
 using SceneLoading;
+using System.Threading.Tasks;
 using Tools;
 using UnityEngine;
-using Zenject;
 using UnityObject = UnityEngine.Object;
 
 
@@ -32,6 +32,7 @@ namespace Assets.Scripts.GameStates.States
 
         public override async void Exit()
         {
+            await Task.Delay(0);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Levels.Generation
             }
         }
 
-        public Path CreatPath(Transform root, ObstacleCollisionFeedback feedback, CancellationTokenSource cancellationTokenSource)
+        public  Path CreatPath(Transform root, ObstacleCollisionFeedback feedback, CancellationTokenSource cancellationTokenSource)
         {
             Path path = Instantiate(_pathPrefab, root);
             path.Initialize(_plaforms, feedback, cancellationTokenSource);

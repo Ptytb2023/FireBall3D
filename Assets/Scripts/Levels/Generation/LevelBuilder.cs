@@ -3,8 +3,8 @@ using Pathes;
 using Players;
 using UnityEngine;
 using System.Threading;
-using Zenject;
 using IoC;
+using System.Threading.Tasks;
 
 namespace Levels.Generation
 {
@@ -21,8 +21,8 @@ namespace Levels.Generation
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
 
-        private IPathStructuresContaner _pathStructuresContaner =>
-            Container.InstanceOf<IPathStructuresContaner>();
+        private PathStructuresContaner _pathStructuresContaner =>
+            Container.InstanceOf<PathStructuresContaner>();
 
 
 

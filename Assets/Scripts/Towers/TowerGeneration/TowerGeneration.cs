@@ -38,6 +38,9 @@ namespace Towers.Generation
 
         public async Task<Tower> CreatAsync(Transform tower, CancellationToken cancellationToken)
         {
+            if (tower is null)
+                throw new Exception($"Popasvsa SYKAAAAAAAAAAAAAAAAAAA{tower}");
+
             Vector3 postionSpawn = tower.position;
             int countSegment = _strucures.SegmentCount;
 

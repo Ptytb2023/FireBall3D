@@ -40,6 +40,9 @@ namespace Pathes.Buildes
 
         public async Task<TowerDisassembling> BuildAsync(ProjectilePool pool)
         {
+            if (_towerRoot is null)
+                throw new NullReferenceException("SSSSSSSSSSSSSSSS");
+
             _spawnAnimation.ApplyTo(_towerRoot);
             _projectileHitTriger.Initialisation(pool);
 

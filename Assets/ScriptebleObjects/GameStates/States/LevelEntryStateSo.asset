@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931ec38979ddea74da71a292a43074a0, type: 3}
   m_Name: LevelEntryStateSo
   m_EditorClassIdentifier: 
+  _levelProvider: {fileID: 11400000, guid: 872617352ea2a4f4d8b4c53d0979dab1, type: 2}
   _playerGeneratedPathScene:
     <Name>k__BackingField: GenerationPlayerPath
     <LoadMode>k__BackingField: 1
     <UnloadMode>k__BackingField: 0
-  _levelProvider: {fileID: 11400000, guid: 872617352ea2a4f4d8b4c53d0979dab1, type: 2}
+  _currentLevelSo: {fileID: 11400000, guid: 872617352ea2a4f4d8b4c53d0979dab1, type: 2}

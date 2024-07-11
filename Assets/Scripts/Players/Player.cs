@@ -29,7 +29,7 @@ namespace Players
 
         public event Action Dead;
 
-        private void Start()
+        private void Awake()
         {
             Character character = _caharcerContainer.Creat(transform);
 
